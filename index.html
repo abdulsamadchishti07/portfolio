@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Samad Chishti — Aspiring Backend Developer & IT Student</title>
+  <meta name="description" content="I am a backend Developer. Passionate about building and making robust web applications. ">
+  <meta name="author" content="Abdul Samad Chishti">
+
+  <!-- Canonical & Domain -->
+  <link rel="canonical" href="https://abdulsamadchishti.dev/">
+
+  <!-- Favicon for Browser Tab -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="alternate icon" href="assets/icons/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Abdul Samad Chishti — Aspiring Backend Developer">
+  <meta property="og:description" content="BS IT student at The Islamia University of Bahawalpur. Learning and building backend systems with Python, Django, FastAPI, and PostgreSQL.">
+  <meta property="og:url" content="https://abdulsamadchishti.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://abdulsamadchishti.dev/assets/icons/favicon.svg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@Samad187588">
+  <meta name="twitter:title" content="Abdul Samad Chishti — Aspiring Backend Developer">
+  <meta name="twitter:description" content="BS IT student at The Islamia University of Bahawalpur. Learning and building backend systems with Python, Django, FastAPI, and PostgreSQL.">
+  <meta name="twitter:url" content="https://abdulsamadchishti.dev/">
+  <meta name="twitter:image" content="https://abdulsamadchishti.dev/assets/icons/favicon.svg">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abdul Samad Chishti",
+    "url": "https://abdulsamadchishti.dev",
+    "jobTitle": "Aspiring Backend Developer",
+    "alumniOf": "The Islamia University of Bahawalpur",
+    "knowsAbout": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "REST APIs",
+      "Git"
+    ],
+    "sameAs": [
+      "https://github.com/abdulsamadchishti07",
+      "https://linkedin.com/in/abdulsamadchishti07",
+      "https://x.com/Samad187588",
+      "https://discord.gg/mo3xey",
+      "https://instagram.com/abdulsamadchishti"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Floating Navigation Dock -->
+  <header class="nav-dock-container" role="banner">
+    <nav class="nav-dock" aria-label="Main Navigation">
+      <a href="#about" class="nav-brand" aria-label="Abdul Samad Chishti Home">
+        <span class="nav-brand-initials">AS</span>
+        <span>Samad</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#work" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-divider" aria-hidden="true"></div>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button with designated Icon Slot -->
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Switch Theme" title="Toggle Light/Dark Theme">
+          <div class="icon-slot icon-sm">
+            <img src="assets/icons/moon.svg" alt="Theme icon" onerror="this.parentElement.textContent='🌙';">
+          </div>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="btn-mobile-menu" aria-label="Open mobile navigation menu">
+          <div class="icon-slot icon-sm">
+            <img src="assets/icons/server.svg" alt="Menu" onerror="this.parentElement.textContent='☰';">
+          </div>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" role="dialog" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <div class="nav-brand">
+          <span class="nav-brand-initials">AS</span>
+          <span>Abdul Samad</span>
+        </div>
+        <button id="mobile-close-btn" class="modal-close-btn" aria-label="Close menu">
+          <div class="icon-slot icon-sm">
+            <img src="assets/icons/close.svg" alt="Close menu" onerror="this.parentElement.textContent='✕';">
+          </div>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#work" class="mobile-nav-link">Projects & Active Work</a>
+        <a href="#skills" class="mobile-nav-link">Skills & Stack</a>
+        <a href="#experience" class="mobile-nav-link">Experience & Education</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="about" class="section hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-badge-row">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>Open for Junior Roles, Internships & Collaboration</span>
+          </div>
+          <div class="hero-location-pill">
+            <div class="icon-slot icon-sm" style="width: 20px; height: 20px; border: none; background: transparent;">
+              <img src="assets/icons/linux.svg" alt="Location" onerror="this.parentElement.textContent='📍';">
+            </div>
+            <span>Bahawalpur, Pakistan <span id="local-time-display"></span></span>
+          </div>
+        </div>
+
+        <h1 id="hero-heading" class="hero-title">
+          Learning & Building <span class="hero-highlight-warm">Modern Backends</span> with <span class="hero-highlight-sage">Python</span>.
+        </h1>
+
+        <p class="hero-bio">
+          Hi, I'm <strong>Abdul Samad Chishti</strong>, I am a student of <strong>Information Technology</strong> and a passionate Backend Developer.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">
+            <span>View My Projects</span>
+            <div class="icon-slot icon-sm" style="background: rgba(255,255,255,0.2); border: none;">
+              <img src="assets/icons/arrow-up-right.svg" alt="Arrow icon" onerror="this.parentElement.textContent='↓';">
+            </div>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>Connect with Me</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Showcase Section -->
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-eyebrow">Projects & Practice</span>
+          <h2 id="work-heading" class="section-title">Backend Projects & Case Studies</h2>
+          <p class="section-desc">
+            A look into the backend systems I'm building as I learn: exploring API contracts, race condition safeguards, relational database schemas, and background queues.
+          </p>
+        </header>
+
+        <!-- Category Filters -->
+        <div class="project-filters" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="fastapi">FastAPI</button>
+          <button class="filter-btn" data-filter="django">Django</button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div id="projects-grid" class="projects-grid">
+          <!-- Populated by js/modules/projects.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technical Mastery -->
+    <section id="skills" class="section" aria-labelledby="skills-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-eyebrow">Technical Foundation</span>
+          <h2 id="skills-heading" class="section-title">Skills & Learning Journey</h2>
+          <p class="section-desc">
+            The core tools, languages, and backend patterns I am actively studying and practicing in my coursework and personal projects.
+          </p>
+        </header>
+
+        <div class="skills-grid">
+          <!-- Pillar 1: Frameworks & Language -->
+          <div class="skill-pillar-card">
+            <div class="skill-pillar-header">
+              <div class="icon-slot icon-lg">
+                <img src="assets/icons/python.svg" alt="Python" onerror="this.parentElement.textContent='PY';">
+              </div>
+              <div>
+                <h3 class="skill-pillar-title">Languages & Web Frameworks</h3>
+                <p style="font-size: var(--text-xs); color: var(--text-muted);">API development & logic</p>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/django.svg" alt="Django" onerror="this.parentElement.textContent='DJ';">
+                  </div>
+                  <span class="skill-name">Django & Django REST Framework</span>
+                </div>
+                <span class="skill-badge">Practical Trainee Exp</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/fastapi.svg" alt="FastAPI" onerror="this.parentElement.textContent='⚡';">
+                  </div>
+                  <span class="skill-name">FastAPI</span>
+                </div>
+                <span class="skill-badge">Active Project</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/python.svg" alt="Python" onerror="this.parentElement.textContent='PY';">
+                  </div>
+                  <span class="skill-name">Python Core & OOP</span>
+                </div>
+                <span class="skill-badge">Primary Language</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/graphql.svg" alt="REST" onerror="this.parentElement.textContent='API';">
+                  </div>
+                  <span class="skill-name">RESTful API Design & HTTP</span>
+                </div>
+                <span class="skill-badge">CRUD & Status Codes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Databases & Caching -->
+          <div class="skill-pillar-card">
+            <div class="skill-pillar-header">
+              <div class="icon-slot icon-lg">
+                <img src="assets/icons/postgresql.svg" alt="PostgreSQL" onerror="this.parentElement.textContent='PG';">
+              </div>
+              <div>
+                <h3 class="skill-pillar-title">Databases & Data Storage</h3>
+                <p style="font-size: var(--text-xs); color: var(--text-muted);">Schema design & persistence</p>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/postgresql.svg" alt="PostgreSQL" onerror="this.parentElement.textContent='PG';">
+                  </div>
+                  <span class="skill-name">PostgreSQL</span>
+                </div>
+                <span class="skill-badge">Relational Modeling</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/redis.svg" alt="Redis" onerror="this.parentElement.textContent='RD';">
+                  </div>
+                  <span class="skill-name">Redis (Caching & Locks)</span>
+                </div>
+                <span class="skill-badge">Key-Value & Locks</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='SQL';">
+                  </div>
+                  <span class="skill-name">SQL Queries & Django ORM</span>
+                </div>
+                <span class="skill-badge">Query Optimization</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='DB';">
+                  </div>
+                  <span class="skill-name">Database Migrations & Relations</span>
+                </div>
+                <span class="skill-badge">Foreign Keys & Indexes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Distributed Systems -->
+          <div class="skill-pillar-card">
+            <div class="skill-pillar-header">
+              <div class="icon-slot icon-lg">
+                <img src="assets/icons/celery.svg" alt="Celery" onerror="this.parentElement.textContent='CL';">
+              </div>
+              <div>
+                <h3 class="skill-pillar-title">Background Tasks & Tools</h3>
+                <p style="font-size: var(--text-xs); color: var(--text-muted);">Queues & asynchronous jobs</p>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/celery.svg" alt="Celery" onerror="this.parentElement.textContent='CL';">
+                  </div>
+                  <span class="skill-name">Celery (Async Worker Tasks)</span>
+                </div>
+                <span class="skill-badge">Exploring Queues</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/docker.svg" alt="Docker" onerror="this.parentElement.textContent='DK';">
+                  </div>
+                  <span class="skill-name">Docker Basics</span>
+                </div>
+                <span class="skill-badge">Containerized Dev</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/linux.svg" alt="Linux" onerror="this.parentElement.textContent='LX';">
+                  </div>
+                  <span class="skill-name">Linux & Command Line</span>
+                </div>
+                <span class="skill-badge">Daily Environment</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/git.svg" alt="Git" onerror="this.parentElement.textContent='GT';">
+                  </div>
+                  <span class="skill-name">Git & GitHub</span>
+                </div>
+                <span class="skill-badge">Version Control</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Security & Auth -->
+          <div class="skill-pillar-card">
+            <div class="skill-pillar-header">
+              <div class="icon-slot icon-lg">
+                <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='SH';">
+              </div>
+              <div>
+                <h3 class="skill-pillar-title">Authentication & Core Concepts</h3>
+                <p style="font-size: var(--text-xs); color: var(--text-muted);">Security & best practices</p>
+              </div>
+            </div>
+
+            <div class="skill-items-list">
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='AU';">
+                  </div>
+                  <span class="skill-name">JWT & Token Authentication</span>
+                </div>
+                <span class="skill-badge">Session & Auth</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='RB';">
+                  </div>
+                  <span class="skill-name">Role-Based Access Control</span>
+                </div>
+                <span class="skill-badge">Permission Guards</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/server.svg" alt="Postman" onerror="this.parentElement.textContent='PM';">
+                  </div>
+                  <span class="skill-name">Postman & API Testing</span>
+                </div>
+                <span class="skill-badge">Endpoint Validation</span>
+              </div>
+
+              <div class="skill-item-row">
+                <div class="skill-item-info">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/server.svg" alt="Architecture" onerror="this.parentElement.textContent='CS';">
+                  </div>
+                  <span class="skill-name">Data Structures & CS Foundations</span>
+                </div>
+                <span class="skill-badge">University Curriculum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Experience & Education Timeline -->
+    <section id="experience" class="section" aria-labelledby="experience-heading">
+      <div class="container container-narrow">
+        <header class="section-header text-center">
+          <span class="section-eyebrow">Experience</span>
+          <h2 id="experience-heading" class="section-title">Work Experience</h2>
+          <p class="section-desc">
+            Hands-on professional experience in backend web development and collaborative team workflows.
+          </p>
+        </header>
+
+        <div class="timeline-list">
+          <!-- Enigmatix Trainee -->
+          <div class="timeline-card">
+            <span class="timeline-period">Aug 2025 — Dec 2025 (5 mos)</span>
+            <h3 class="timeline-role">Backend Trainee — Enigmatix</h3>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.5rem;">Part-time · On-site · Bahawalpur, Punjab, Pakistan</p>
+            <p class="timeline-summary">
+              Trained in backend web development using Django and Python. Gained practical experience in building and testing REST APIs, database modeling, handling HTTP request lifecycles, and working collaboratively on production codebases.
+            </p>
+          </div>
+
+          <!-- WebXMeta Employee -->
+          <div class="timeline-card">
+            <span class="timeline-period">Mar 2025 — Jul 2025 (5 mos)</span>
+            <h3 class="timeline-role">Employee — WebXMeta</h3>
+            <p style="font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.5rem;">Full-time · On-site · Bahawalpur, Punjab, Pakistan</p>
+            <p class="timeline-summary">
+              Gained professional experience in business development, lead generation, client communication, and cross-functional team workflows in an IT agency environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Deck -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-eyebrow">Connect & Collaborate</span>
+          <h2 id="contact-heading" class="section-title">Let's Connect & Learn Together</h2>
+          <p class="section-desc">
+            Open for junior backend opportunities, internships, student collaborations, and open-source contributions.
+          </p>
+        </header>
+
+        <div class="contact-grid">
+          <!-- Left: Direct Social Cards & 1-Click Copy -->
+          <div class="contact-card">
+            <div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.75rem;">Direct Channels</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Feel free to reach out to connect, chat about backend engineering, or discuss opportunities!
+              </p>
+
+              <!-- 1-Click Email Copy Box -->
+              <div class="email-copy-box">
+                <div>
+                  <span style="font-size: var(--text-xs); color: var(--text-muted); display: block; margin-bottom: 2px;">Direct Email</span>
+                  <span class="email-address-text">abdulsamadchishti07@gmail.com</span>
+                </div>
+                <button id="btn-copy-email" class="btn-copy-email" aria-label="Copy email address to clipboard">
+                  <div class="icon-slot icon-sm" style="width: 24px; height: 24px; background: transparent; border: none;">
+                    <img src="assets/icons/copy.svg" alt="Copy icon" onerror="this.parentElement.textContent='📋';">
+                  </div>
+                  <span class="btn-copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Social Badges with Icon Slots -->
+            <div class="socials-list">
+              <!-- GitHub Profile -->
+              <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/github.svg" alt="GitHub" onerror="this.parentElement.textContent='GH';">
+                  </div>
+                  <div>
+                    <span class="social-name">GitHub</span>
+                    <span class="social-handle" style="display: block;">@abdulsamadchishti07</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" onerror="this.parentElement.textContent='in';">
+                  </div>
+                  <div>
+                    <span class="social-name">LinkedIn</span>
+                    <span class="social-handle" style="display: block;">/in/abdulsamadchishti07</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+
+              <!-- X / Twitter -->
+              <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/x.svg" alt="X (Twitter)" onerror="this.parentElement.textContent='𝕏';">
+                  </div>
+                  <div>
+                    <span class="social-name">X (Twitter)</span>
+                    <span class="social-handle" style="display: block;">@Samad187588</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+
+              <!-- Discord -->
+              <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/discord.svg" alt="Discord" onerror="this.parentElement.textContent='DC';">
+                  </div>
+                  <div>
+                    <span class="social-name">Discord</span>
+                    <span class="social-handle" style="display: block;">Join community / server</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com/abdulsamadchishti" target="_blank" rel="noopener noreferrer" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/instagram.svg" alt="Instagram" onerror="this.parentElement.textContent='IG';">
+                  </div>
+                  <div>
+                    <span class="social-name">Instagram</span>
+                    <span class="social-handle" style="display: block;">@abdulsamadchishti</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+
+              <!-- Gmail Direct -->
+              <a href="mailto:abdulsamadchishti07@gmail.com" class="social-pill">
+                <div class="social-pill-left">
+                  <div class="icon-slot icon-sm">
+                    <img src="assets/icons/email.svg" alt="Email" onerror="this.parentElement.textContent='✉';">
+                  </div>
+                  <div>
+                    <span class="social-name">Email Directly</span>
+                    <span class="social-handle" style="display: block;">abdulsamadchishti07@gmail.com</span>
+                  </div>
+                </div>
+                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Accessible Interactive Contact Form -->
+          <div class="contact-card">
+            <div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.75rem;">Send a Message</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Have a question, feedback on my projects, or an internship opportunity? Leave a note below.
+              </p>
+
+              <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Name</label>
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Rivera" required minlength="2">
+                  <span class="form-error-msg">Please enter your name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address</label>
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+                  <span class="form-error-msg">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-subject" class="form-label">Subject / Scope</label>
+                  <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="Junior Role / Internship / Project Feedback" required>
+                  <span class="form-error-msg">Please provide a subject.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">Message</label>
+                  <textarea id="contact-message" name="message" class="form-textarea" placeholder="Write your message here..." required minlength="10"></textarea>
+                  <span class="form-error-msg">Message must be at least 10 characters.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">
+                  <span>Send Message</span>
+                  <div class="icon-slot icon-sm" style="background: rgba(255,255,255,0.2); border: none;">
+                    <img src="assets/icons/arrow-up-right.svg" alt="Send" onerror="this.parentElement.textContent='→';">
+                  </div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Native Architecture Deep-Dive Case Study Modal -->
+  <dialog id="case-study-modal" aria-labelledby="modal-title">
+    <div id="modal-wrapper" class="modal-wrapper">
+      <header class="modal-header">
+        <div>
+          <span id="modal-badge" class="project-category-badge">Category</span>
+          <h3 id="modal-title" class="project-title" style="margin-top: 0.5rem; font-size: var(--text-2xl);">Project Case Study</h3>
+        </div>
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">
+          <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+            <img src="assets/icons/close.svg" alt="Close" onerror="this.parentElement.textContent='✕';">
+          </div>
+        </button>
+      </header>
+
+      <div id="modal-body" class="modal-body">
+        <!-- Content injected dynamically by js/modules/projects.js -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Floating Toast Feedback -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true">
+    <div class="icon-slot icon-sm" style="background: var(--color-success-soft); border: none;">
+      <img src="assets/icons/check.svg" alt="Checkmark" onerror="this.parentElement.textContent='✓';">
+    </div>
+    <span class="toast-message">Notification message</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-content">
+      <div class="footer-credits">
+        <p>&copy; <span id="current-year">2026</span> <strong>Abdul Samad Chishti</strong> • <a href="https://abdulsamadchishti.dev/" style="color: var(--color-terracotta); font-weight: 600;">abdulsamadchishti.dev</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer" class="footer-link">X (Twitter)</a>
+        <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
+        <a href="https://instagram.com/abdulsamadchishti" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Module Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

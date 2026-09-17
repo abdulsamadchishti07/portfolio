@@ -1,0 +1,125 @@
+/**
+ * Design Tokens — Abdul Samad Chishti Portfolio
+ * Soft, warm, tactile visual language with high contrast accessibility
+ */
+
+:root {
+  /* Warm Porcelain (Light Theme Default) */
+  --bg-canvas: #FAF7F2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-subtle: #F3EFE9;
+  --bg-glass: rgba(250, 247, 242, 0.85);
+
+  --text-primary: #1F1C19;
+  --text-secondary: #57524C;
+  --text-muted: #8C867E;
+
+  --border-subtle: rgba(120, 100, 80, 0.08);
+  --border-medium: rgba(120, 100, 80, 0.14);
+  --border-hover: rgba(120, 100, 80, 0.22);
+
+  /* Primary Accent: Terracotta Warmth */
+  --color-terracotta: #D9653B;
+  --color-terracotta-soft: rgba(217, 101, 59, 0.12);
+  --color-terracotta-hover: #C5562F;
+
+  /* Secondary Accent: Eucalyptus Sage */
+  --color-sage: #3D7A64;
+  --color-sage-soft: rgba(61, 122, 100, 0.12);
+  --color-sage-hover: #326452;
+
+  /* Tertiary Accent: Honey Amber */
+  --color-amber: #D47E28;
+  --color-amber-soft: rgba(212, 126, 40, 0.12);
+
+  /* Slate & Indigo Accents */
+  --color-indigo: #4A6FA5;
+  --color-indigo-soft: rgba(74, 111, 165, 0.12);
+
+  /* Feedback Colors */
+  --color-success: #2E8555;
+  --color-success-soft: rgba(46, 133, 85, 0.12);
+  --color-error: #C93B3B;
+  --color-error-soft: rgba(201, 59, 59, 0.12);
+
+  /* Soft Border Radii */
+  --radius-xs: 8px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-pill: 9999px;
+
+  /* Diffuse Ambient Layered Shadows */
+  --shadow-sm: 0 2px 8px -1px rgba(50, 40, 30, 0.04), 0 1px 2px -0.5px rgba(50, 40, 30, 0.03);
+  --shadow-md: 0 8px 24px -4px rgba(50, 40, 30, 0.06), 0 2px 6px -1px rgba(50, 40, 30, 0.03);
+  --shadow-lg: 0 18px 48px -8px rgba(50, 40, 30, 0.08), 0 4px 12px -2px rgba(50, 40, 30, 0.04);
+  --shadow-dock: 0 16px 40px -10px rgba(50, 40, 30, 0.12), 0 0 0 1px var(--border-subtle);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.06rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.4vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.85rem + 2vw, 3.25rem);
+  --text-hero: clamp(2.75rem, 2.1rem + 3.2vw, 4.25rem);
+
+  /* Motion Curves */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 180ms var(--ease-smooth);
+  --transition-normal: 300ms var(--ease-spring);
+  --transition-slow: 550ms var(--ease-spring);
+
+  /* Layout Constrains */
+  --container-max: 1160px;
+  --container-narrow: 840px;
+}
+
+/* Soft Obsidian (Dark Theme) */
+[data-theme="dark"] {
+  --bg-canvas: #131518;
+  --bg-surface: #1B1E22;
+  --bg-surface-elevated: #22262B;
+  --bg-subtle: #1F2227;
+  --bg-glass: rgba(19, 21, 24, 0.85);
+
+  --text-primary: #F4F1EA;
+  --text-secondary: #ADA9A0;
+  --text-muted: #7A766F;
+
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
+  --color-terracotta: #E87A52;
+  --color-terracotta-soft: rgba(232, 122, 82, 0.16);
+  --color-terracotta-hover: #F28963;
+
+  --color-sage: #529E83;
+  --color-sage-soft: rgba(82, 158, 131, 0.16);
+  --color-sage-hover: #62B395;
+
+  --color-amber: #E2933C;
+  --color-amber-soft: rgba(226, 147, 60, 0.16);
+
+  --color-indigo: #6B93D0;
+  --color-indigo-soft: rgba(107, 147, 208, 0.16);
+
+  --color-success: #44B376;
+  --color-success-soft: rgba(68, 179, 118, 0.16);
+  --color-error: #E55C5C;
+  --color-error-soft: rgba(229, 92, 92, 0.16);
+
+  --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.3), 0 1px 2px -0.5px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 18px 48px -8px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  --shadow-dock: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--border-subtle);
+}
