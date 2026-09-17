@@ -100,6 +100,13 @@
   z-index: 1000;
   padding-inline: 1rem;
   pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.nav-dock-container.nav-hidden {
+  transform: translateY(-160%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav-dock {

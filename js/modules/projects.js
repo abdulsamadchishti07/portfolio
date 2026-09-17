@@ -10,9 +10,20 @@ export function initProjects() {
   const modal = document.getElementById('case-study-modal');
   const modalWrapper = document.getElementById('modal-wrapper');
   const modalCloseBtn = document.getElementById('modal-close-btn');
+  const grid = document.getElementById('projects-grid');
 
-  // Render Project Cards
-  renderProjects('all');
+  // Attach event listeners to pre-rendered static HTML project cards
+  function attachCardListeners() {
+    if (!grid) return;
+    grid.querySelectorAll('.btn-project-cta').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const projectId = btn.getAttribute('data-project-id');
+        openCaseStudy(projectId);
+      });
+    });
+  }
+
+  attachCardListeners();
 
   // Filter Buttons
   filterBtns.forEach((btn) => {
@@ -20,9 +31,19 @@ export function initProjects() {
       filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       const category = btn.getAttribute('data-filter');
-      renderProjects(category);
+      filterProjects(category);
     });
   });
+
+  function filterProjects(category) {
+    if (!grid) return;
+    const cards = grid.querySelectorAll('.project-card');
+    cards.forEach((card) => {
+      const cardCategory = card.getAttribute('data-category');
+      const matches = category === 'all' || cardCategory === category;
+      card.style.display = matches ? '' : 'none';
+    });
+  }
 
   // Modal Setup
   if (modal) {
@@ -45,59 +66,6 @@ export function initProjects() {
         modal.close();
       });
     }
-  }
-
-  function renderProjects(category) {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
-
-    const filtered = category === 'all'
-      ? projectsData
-      : projectsData.filter((p) => p.category === category);
-
-    grid.innerHTML = filtered.map((project) => `
-      <article class="project-card" data-category="${project.category}">
-        <div class="project-card-top">
-          <div class="project-card-header">
-            <span class="project-category-badge">${project.categoryLabel}</span>
-          </div>
-          <h3 class="project-title">${project.title}</h3>
-          <p class="project-desc">${project.tagline}</p>
-        </div>
-
-        <div class="project-impact-box ${project.impactBannerColor}">
-          <span class="project-impact-text">⚡ ${project.impactBanner}</span>
-        </div>
-
-        <div class="project-tech-tags">
-          ${project.techStack.map((tech) => `<span class="tech-tag">${tech}</span>`).join('')}
-        </div>
-
-        <div class="project-card-footer">
-          <button class="btn-project-cta" data-project-id="${project.id}" aria-label="Explore architecture of ${project.title}">
-            <span>Architecture & Details</span>
-            <div class="icon-slot icon-sm">
-              <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
-            </div>
-          </button>
-
-          <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View ${project.title} on GitHub" title="View Source on GitHub">
-            <div class="icon-slot icon-sm" style="width: 20px; height: 20px; border: none; background: transparent;">
-              <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
-            </div>
-            <span>GitHub</span>
-          </a>
-        </div>
-      </article>
-    `).join('');
-
-    // Attach listeners to newly rendered buttons
-    grid.querySelectorAll('.btn-project-cta').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const projectId = btn.getAttribute('data-project-id');
-        openCaseStudy(projectId);
-      });
-    });
   }
 
   function openCaseStudy(projectId) {

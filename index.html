@@ -22,16 +22,33 @@
   <meta property="og:url" content="https://abdulsamadchishti.dev/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abdul Samad Chishti Portfolio">
-  <meta property="og:image" content="https://abdulsamadchishti.dev/assets/icons/favicon.svg">
+  <meta property="og:image" content="https://abdulsamadchishti.dev/assets/images/og-banner.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Abdul Samad Chishti — Backend Developer Portfolio Banner">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@Samad187588">
   <meta name="twitter:title" content="Abdul Samad Chishti — Backend Developer Portfolio">
   <meta name="twitter:description" content="Official portfolio of Abdul Samad Chishti — Aspiring Backend Developer & IT Student. Built with Python, Django, FastAPI, PostgreSQL, and Redis.">
   <meta name="twitter:url" content="https://abdulsamadchishti.dev/">
-  <meta name="twitter:image" content="https://abdulsamadchishti.dev/assets/icons/favicon.svg">
+  <meta name="twitter:image" content="https://abdulsamadchishti.dev/assets/images/og-banner.jpg">
+  <meta name="twitter:image:alt" content="Abdul Samad Chishti — Backend Developer Portfolio Banner">
+
+  <!-- Anti-Flash Theme Script (Executes synchronously before paint to prevent FOUC) -->
+  <script>
+    (function() {
+      try {
+        const storedTheme = localStorage.getItem('samad_portfolio_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,7 +160,7 @@
         <!-- Mobile Menu Toggle -->
         <button id="mobile-menu-btn" class="btn-mobile-menu" aria-label="Open mobile navigation menu">
           <div class="icon-slot icon-sm">
-            <img src="assets/icons/server.svg" alt="Menu" onerror="this.parentElement.textContent='☰';">
+            <img src="assets/icons/menu.svg" alt="Menu" onerror="this.parentElement.textContent='☰';">
           </div>
         </button>
       </div>
@@ -185,10 +202,10 @@
             <span>Open for Junior Roles, Internships & Collaboration</span>
           </div>
           <div class="hero-location-pill">
-            <div class="icon-slot icon-sm" style="width: 20px; height: 20px; border: none; background: transparent;">
-              <img src="assets/icons/linux.svg" alt="Location" onerror="this.parentElement.textContent='📍';">
+            <div class="icon-slot icon-sm icon-slot-pill">
+              <img src="assets/icons/linux.svg" alt="Linux" onerror="this.parentElement.textContent='🐧';">
             </div>
-            <span>Bahawalpur, Pakistan <span id="local-time-display"></span></span>
+            <span id="local-time-display"></span>
           </div>
         </div>
 
@@ -203,7 +220,7 @@
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">
             <span>View My Projects</span>
-            <div class="icon-slot icon-sm" style="background: rgba(255,255,255,0.2); border: none;">
+            <div class="icon-slot icon-sm icon-slot-primary-btn">
               <img src="assets/icons/arrow-up-right.svg" alt="Arrow icon" onerror="this.parentElement.textContent='↓';">
             </div>
           </a>
@@ -232,9 +249,124 @@
           <button class="filter-btn" data-filter="django">Django</button>
         </div>
 
-        <!-- Dynamic Projects Grid -->
+        <!-- Projects Grid (Pre-rendered for Instant SEO & Web Crawlers) -->
         <div id="projects-grid" class="projects-grid">
-          <!-- Populated by js/modules/projects.js -->
+          <!-- Project 1: Event Booking & Ticketing API -->
+          <article class="project-card" data-category="fastapi">
+            <div class="project-card-top">
+              <div class="project-card-header">
+                <span class="project-category-badge">In Development 🚀</span>
+              </div>
+              <h3 class="project-title">Event Booking &amp; Ticketing API</h3>
+              <p class="project-desc">Users can browse events, reserve seats/tickets, and pay. Admins can create events with limited seat capacity.</p>
+            </div>
+
+            <div class="project-impact-box terracotta">
+              <span class="project-impact-text">⚡ In Active Development • Concurrency &amp; Race Condition Prevention</span>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Alembic</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-cta" data-project-id="event-booking-ticketing-api" aria-label="Explore architecture of Event Booking &amp; Ticketing API">
+                <span>Architecture &amp; Details</span>
+                <div class="icon-slot icon-sm">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </button>
+
+              <a href="https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Event Booking &amp; Ticketing API on GitHub" title="View Source on GitHub">
+                <div class="icon-slot icon-sm icon-slot-pill">
+                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
+                </div>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Ecommerce (Practice Project) -->
+          <article class="project-card" data-category="django">
+            <div class="project-card-top">
+              <div class="project-card-header">
+                <span class="project-category-badge">Django Backend</span>
+              </div>
+              <h3 class="project-title">Ecommerce (Practice Project)</h3>
+              <p class="project-desc">Django E-Commerce (Practice Project): Clean backend architecture with authentication, product catalog, cart, and order processing.</p>
+            </div>
+
+            <div class="project-impact-box sage">
+              <span class="project-impact-text">⚡ Django E-Commerce Practice • OTP Auth &amp; Docker Compose</span>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Git</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-cta" data-project-id="ecommerce-backend" aria-label="Explore architecture of Ecommerce (Practice Project)">
+                <span>Architecture &amp; Details</span>
+                <div class="icon-slot icon-sm">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </button>
+
+              <a href="https://github.com/abdulsamadchishti07/Ecommerce" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Ecommerce (Practice Project) on GitHub" title="View Source on GitHub">
+                <div class="icon-slot icon-sm icon-slot-pill">
+                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
+                </div>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Project-Management-API -->
+          <article class="project-card" data-category="fastapi">
+            <div class="project-card-top">
+              <div class="project-card-header">
+                <span class="project-category-badge">FastAPI Multi-Tenant</span>
+              </div>
+              <h3 class="project-title">Project-Management-API</h3>
+              <p class="project-desc">Multi-tenant task management REST API built with FastAPI, Redis caching, and Alembic.</p>
+            </div>
+
+            <div class="project-impact-box amber">
+              <span class="project-impact-text">⚡ Multi-Tenant Isolation, Redis Caching &amp; Rate Limiting</span>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-cta" data-project-id="project-management-api" aria-label="Explore architecture of Project-Management-API">
+                <span>Architecture &amp; Details</span>
+                <div class="icon-slot icon-sm">
+                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+                </div>
+              </button>
+
+              <a href="https://github.com/abdulsamadchishti07/Project-Management-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Project-Management-API on GitHub" title="View Source on GitHub">
+                <div class="icon-slot icon-sm icon-slot-pill">
+                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
+                </div>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -259,7 +391,7 @@
               </div>
               <div>
                 <h3 class="skill-pillar-title">Languages & Web Frameworks</h3>
-                <p style="font-size: var(--text-xs); color: var(--text-muted);">API development & logic</p>
+                <p class="pillar-subtitle">API development &amp; logic</p>
               </div>
             </div>
 
@@ -297,7 +429,7 @@
               <div class="skill-item-row">
                 <div class="skill-item-info">
                   <div class="icon-slot icon-sm">
-                    <img src="assets/icons/graphql.svg" alt="REST" onerror="this.parentElement.textContent='API';">
+                    <img src="assets/icons/rest-api.svg" alt="REST API" onerror="this.parentElement.textContent='API';">
                   </div>
                   <span class="skill-name">RESTful API Design & HTTP</span>
                 </div>
@@ -314,7 +446,7 @@
               </div>
               <div>
                 <h3 class="skill-pillar-title">Databases & Data Storage</h3>
-                <p style="font-size: var(--text-xs); color: var(--text-muted);">Schema design & persistence</p>
+                <p class="pillar-subtitle">Schema design &amp; persistence</p>
               </div>
             </div>
 
@@ -369,7 +501,7 @@
               </div>
               <div>
                 <h3 class="skill-pillar-title">Background Tasks & Tools</h3>
-                <p style="font-size: var(--text-xs); color: var(--text-muted);">Queues & asynchronous jobs</p>
+                <p class="pillar-subtitle">Queues &amp; asynchronous jobs</p>
               </div>
             </div>
 
@@ -424,7 +556,7 @@
               </div>
               <div>
                 <h3 class="skill-pillar-title">Authentication & Core Concepts</h3>
-                <p style="font-size: var(--text-xs); color: var(--text-muted);">Security & best practices</p>
+                <p class="pillar-subtitle">Security &amp; best practices</p>
               </div>
             </div>
 
@@ -452,7 +584,7 @@
               <div class="skill-item-row">
                 <div class="skill-item-info">
                   <div class="icon-slot icon-sm">
-                    <img src="assets/icons/server.svg" alt="Postman" onerror="this.parentElement.textContent='PM';">
+                    <img src="assets/icons/postman.svg" alt="Postman" onerror="this.parentElement.textContent='PM';">
                   </div>
                   <span class="skill-name">Postman & API Testing</span>
                 </div>
@@ -462,7 +594,7 @@
               <div class="skill-item-row">
                 <div class="skill-item-info">
                   <div class="icon-slot icon-sm">
-                    <img src="assets/icons/server.svg" alt="Architecture" onerror="this.parentElement.textContent='CS';">
+                    <img src="assets/icons/algorithms.svg" alt="Algorithms" onerror="this.parentElement.textContent='CS';">
                   </div>
                   <span class="skill-name">Data Structures & CS Foundations</span>
                 </div>
@@ -490,7 +622,7 @@
           <div class="timeline-card">
             <span class="timeline-period">Aug 2025 — Dec 2025 (5 mos)</span>
             <h3 class="timeline-role">Backend Trainee — Enigmatix</h3>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.5rem;">Part-time · On-site · Bahawalpur, Punjab, Pakistan</p>
+            <p class="experience-meta">Part-time · On-site · Bahawalpur, Punjab, Pakistan</p>
             <p class="timeline-summary">
               Trained in backend web development using Django and Python. Gained practical experience in building and testing REST APIs, database modeling, handling HTTP request lifecycles, and working collaboratively on production codebases.
             </p>
@@ -500,7 +632,7 @@
           <div class="timeline-card">
             <span class="timeline-period">Mar 2025 — Jul 2025 (5 mos)</span>
             <h3 class="timeline-role">Employee — WebXMeta</h3>
-            <p style="font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.5rem;">Full-time · On-site · Bahawalpur, Punjab, Pakistan</p>
+            <p class="experience-meta">Full-time · On-site · Bahawalpur, Punjab, Pakistan</p>
             <p class="timeline-summary">
               Gained professional experience in business development, lead generation, client communication, and cross-functional team workflows in an IT agency environment.
             </p>
@@ -524,19 +656,19 @@
           <!-- Left: Direct Social Cards & 1-Click Copy -->
           <div class="contact-card">
             <div>
-              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.75rem;">Direct Channels</h3>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 1.5rem;">
+              <h3 class="card-title-lg">Direct Channels</h3>
+              <p class="card-desc-muted">
                 Feel free to reach out to connect, chat about backend engineering, or discuss opportunities!
               </p>
 
               <!-- 1-Click Email Copy Box -->
               <div class="email-copy-box">
                 <div>
-                  <span style="font-size: var(--text-xs); color: var(--text-muted); display: block; margin-bottom: 2px;">Direct Email</span>
+                  <span class="contact-label-sub">Direct Email</span>
                   <span class="email-address-text">abdulsamadchishti07@gmail.com</span>
                 </div>
                 <button id="btn-copy-email" class="btn-copy-email" aria-label="Copy email address to clipboard">
-                  <div class="icon-slot icon-sm" style="width: 24px; height: 24px; background: transparent; border: none;">
+                  <div class="icon-slot icon-sm icon-slot-plain">
                     <img src="assets/icons/copy.svg" alt="Copy icon" onerror="this.parentElement.textContent='📋';">
                   </div>
                   <span class="btn-copy-text">Copy</span>
@@ -554,10 +686,10 @@
                   </div>
                   <div>
                     <span class="social-name">GitHub</span>
-                    <span class="social-handle" style="display: block;">@abdulsamadchishti07</span>
+                    <span class="social-handle social-handle-block">@abdulsamadchishti07</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -570,10 +702,10 @@
                   </div>
                   <div>
                     <span class="social-name">LinkedIn</span>
-                    <span class="social-handle" style="display: block;">/in/abdulsamadchishti07</span>
+                    <span class="social-handle social-handle-block">/in/abdulsamadchishti07</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -586,10 +718,10 @@
                   </div>
                   <div>
                     <span class="social-name">X (Twitter)</span>
-                    <span class="social-handle" style="display: block;">@Samad187588</span>
+                    <span class="social-handle social-handle-block">@Samad187588</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -602,10 +734,10 @@
                   </div>
                   <div>
                     <span class="social-name">Discord</span>
-                    <span class="social-handle" style="display: block;">Join community / server</span>
+                    <span class="social-handle social-handle-block">Join community / server</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -618,10 +750,10 @@
                   </div>
                   <div>
                     <span class="social-name">Instagram</span>
-                    <span class="social-handle" style="display: block;">@abdulsamadchishti</span>
+                    <span class="social-handle social-handle-block">@abdulsamadchishti</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -634,10 +766,10 @@
                   </div>
                   <div>
                     <span class="social-name">Email Directly</span>
-                    <span class="social-handle" style="display: block;">abdulsamadchishti07@gmail.com</span>
+                    <span class="social-handle social-handle-block">abdulsamadchishti07@gmail.com</span>
                   </div>
                 </div>
-                <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+                <div class="icon-slot icon-sm icon-slot-plain">
                   <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
                 </div>
               </a>
@@ -647,15 +779,19 @@
           <!-- Right: Accessible Interactive Contact Form -->
           <div class="contact-card">
             <div>
-              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: 0.75rem;">Send a Message</h3>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 1.5rem;">
+              <h3 class="card-title-lg">Send a Message</h3>
+              <p class="card-desc-muted">
                 Have a question, feedback on my projects, or an internship opportunity? Leave a note below.
               </p>
 
               <form id="contact-form" class="contact-form" novalidate>
+                <!-- Honeypot anti-spam trap (invisible to users, filled by bots) -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
                   <label for="contact-name" class="form-label">Your Name</label>
-                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Rivera" required minlength="2">
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your Name or Company" required minlength="2">
                   <span class="form-error-msg">Please enter your name.</span>
                 </div>
 
@@ -677,9 +813,9 @@
                   <span class="form-error-msg">Message must be at least 10 characters.</span>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">
+                <button type="submit" class="btn btn-primary btn-form-submit">
                   <span>Send Message</span>
-                  <div class="icon-slot icon-sm" style="background: rgba(255,255,255,0.2); border: none;">
+                  <div class="icon-slot icon-sm icon-slot-primary-btn">
                     <img src="assets/icons/arrow-up-right.svg" alt="Send" onerror="this.parentElement.textContent='→';">
                   </div>
                 </button>
@@ -697,10 +833,10 @@
       <header class="modal-header">
         <div>
           <span id="modal-badge" class="project-category-badge">Category</span>
-          <h3 id="modal-title" class="project-title" style="margin-top: 0.5rem; font-size: var(--text-2xl);">Project Case Study</h3>
+          <h3 id="modal-title" class="project-title modal-title-custom">Project Case Study</h3>
         </div>
         <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">
-          <div class="icon-slot icon-sm" style="background: transparent; border: none;">
+          <div class="icon-slot icon-sm icon-slot-plain">
             <img src="assets/icons/close.svg" alt="Close" onerror="this.parentElement.textContent='✕';">
           </div>
         </button>
@@ -714,7 +850,7 @@
 
   <!-- Floating Toast Feedback -->
   <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true">
-    <div class="icon-slot icon-sm" style="background: var(--color-success-soft); border: none;">
+    <div class="icon-slot icon-sm icon-slot-success">
       <img src="assets/icons/check.svg" alt="Checkmark" onerror="this.parentElement.textContent='✓';">
     </div>
     <span class="toast-message">Notification message</span>
@@ -724,7 +860,14 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer-content">
       <div class="footer-credits">
-        <p>&copy; <span id="current-year">2026</span> <strong>Abdul Samad Chishti</strong> • <a href="https://abdulsamadchishti.dev/" style="color: var(--color-terracotta); font-weight: 600;">abdulsamadchishti.dev</a></p>
+        <p>&copy; <span id="current-year">2026</span> <strong>Abdul Samad Chishti</strong> • <a href="https://abdulsamadchishti.dev/" class="footer-domain-link">abdulsamadchishti.dev</a></p>
+        <p class="footer-location">
+          <svg class="footer-location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Bahawalpur, Punjab, Pakistan</span>
+        </p>
       </div>
       <div class="footer-links">
         <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>

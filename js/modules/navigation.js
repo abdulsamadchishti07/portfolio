@@ -84,4 +84,26 @@ export function initNavigation() {
     mobileDrawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
+
+  // Scroll Behavior: Hide when scrolling down, reveal when scrolling up
+  const navContainer = document.querySelector('.nav-dock-container');
+  let lastScrollY = window.scrollY;
+  const SCROLL_THRESHOLD = 8;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY <= 80) {
+      // Always visible at the top of the page
+      navContainer?.classList.remove('nav-hidden');
+    } else if (currentScrollY > lastScrollY + SCROLL_THRESHOLD) {
+      // Scrolling DOWN -> hide it
+      navContainer?.classList.add('nav-hidden');
+    } else if (currentScrollY < lastScrollY - SCROLL_THRESHOLD) {
+      // Scrolling UP -> reveal it
+      navContainer?.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
 }

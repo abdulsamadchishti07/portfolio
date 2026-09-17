@@ -52,7 +52,7 @@ export function initContact() {
       });
     });
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       if (!contactForm.checkValidity()) {
@@ -61,17 +61,46 @@ export function initContact() {
       }
 
       const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
+      const originalHtml = submitBtn.innerHTML;
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = `<span>Sending...</span>`;
 
-      setTimeout(() => {
+      // FormSubmit.co AJAX endpoint (free, zero API key, forwards to abdulsamadchishti07@gmail.com)
+      const FORM_ENDPOINT = 'https://formsubmit.co/ajax/abdulsamadchishti07@gmail.com';
+
+      const formData = new FormData(contactForm);
+      const payload = {
+        name: formData.get('name') || '',
+        email: formData.get('email') || '',
+        subject: formData.get('subject') || 'New Portfolio Message',
+        message: formData.get('message') || '',
+        _honey: formData.get('_honey') || '',
+        _subject: `Portfolio Contact: ${formData.get('subject') || 'General Inquiry'} (${formData.get('name') || 'Visitor'})`
+      };
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          contactForm.reset();
+          showToast('Thank you! Your message has been sent successfully.');
+        } else {
+          throw new Error(`Submission failed with status: ${res.status}`);
+        }
+      } catch (err) {
+        showToast('Message could not be sent. Please email directly at abdulsamadchishti07@gmail.com');
+      } finally {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-        contactForm.reset();
-        showToast('Thank you! Your message has been sent successfully.');
-      }, 800);
+        submitBtn.innerHTML = originalHtml;
+      }
     });
   }
 
@@ -89,21 +118,18 @@ export function initContact() {
     }, 3500);
   }
 
-  // Local Time Clock (PKT / UTC+5)
+  // Local Time Clock according to visitor's system timezone
   function updateTime() {
     if (!timeClock) return;
     try {
       const now = new Date();
-      const options = {
-        timeZone: 'Asia/Karachi',
+      timeClock.textContent = now.toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
         hour12: true
-      };
-      const formatter = new Intl.DateTimeFormat([], options);
-      timeClock.textContent = `${formatter.format(now)} PKT (UTC+5)`;
+      });
     } catch (e) {
-      timeClock.textContent = 'UTC+5 (PKT)';
+      timeClock.textContent = '';
     }
   }
 
