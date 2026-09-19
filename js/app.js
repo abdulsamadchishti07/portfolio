@@ -3,10 +3,10 @@
  * Orchestrates modules for Abdul Samad Chishti's Portfolio
  */
 
-import { initTheme } from './modules/theme.js';
-import { initNavigation } from './modules/navigation.js';
-import { initProjects } from './modules/projects.js';
-import { initContact } from './modules/contact.js';
+import { initTheme } from './modules/theme.js?v=2.0';
+import { initNavigation } from './modules/navigation.js?v=2.0';
+import { initProjects } from './modules/projects.js?v=2.0';
+import { initContact } from './modules/contact.js?v=2.0';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Core Modules
