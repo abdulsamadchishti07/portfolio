@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // Graceful handling of image errors in icon slots
-  document.querySelectorAll('.icon-slot img').forEach((img) => {
+  // Graceful handling of image errors in icon slots (excluding dynamic theme toggle)
+  document.querySelectorAll('.icon-slot:not(#theme-toggle-btn *) img').forEach((img) => {
     img.addEventListener('error', function() {
       this.style.display = 'none';
       const slot = this.closest('.icon-slot');

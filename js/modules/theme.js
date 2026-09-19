@@ -37,13 +37,25 @@ function setTheme(theme) {
     themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to Warm Light mode' : 'Switch to Soft Dark mode');
     themeToggleBtn.setAttribute('title', isDark ? 'Switch to Warm Light mode' : 'Switch to Soft Dark mode');
     
-    // Update inner icon placeholder or image
-    const iconImg = themeToggleBtn.querySelector('img');
-    if (iconImg) {
-      iconImg.src = isDark ? 'assets/icons/sun.svg' : 'assets/icons/moon.svg';
-      iconImg.alt = isDark ? 'Sun icon' : 'Moon icon';
+    // Ensure inner icon-slot and SVG img always exist
+    const iconSrc = isDark ? 'assets/icons/sun.svg' : 'assets/icons/moon.svg';
+    const iconAlt = isDark ? 'Sun icon' : 'Moon icon';
+
+    let iconSlot = themeToggleBtn.querySelector('.icon-slot');
+    if (!iconSlot) {
+      themeToggleBtn.innerHTML = `
+        <div class="icon-slot icon-sm">
+          <img src="${iconSrc}" alt="${iconAlt}">
+        </div>
+      `;
     } else {
-      themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
+      let iconImg = iconSlot.querySelector('img');
+      if (!iconImg) {
+        iconSlot.innerHTML = `<img src="${iconSrc}" alt="${iconAlt}">`;
+      } else {
+        iconImg.src = iconSrc;
+        iconImg.alt = iconAlt;
+      }
     }
   }
 }
