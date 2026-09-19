@@ -66,37 +66,11 @@ export function initNavigation() {
       });
     });
 
-    // Resume download handler: guarantees downloaded file is named 'Abdul Samad Resume.pdf'
+    // Close drawer when resume download link is clicked
     const resumeBtn = document.getElementById('btn-download-resume');
     if (resumeBtn) {
-      resumeBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const targetFilename = 'Abdul Samad Resume.pdf';
-        try {
-          const res = await fetch('Abdul_Samad_Resume.pdf');
-          if (!res.ok) throw new Error('Fetch failed');
-          const blob = await res.blob();
-          const blobUrl = window.URL.createObjectURL(
-            new Blob([blob], { type: 'application/pdf' })
-          );
-          const tempLink = document.createElement('a');
-          tempLink.href = blobUrl;
-          tempLink.download = targetFilename;
-          document.body.appendChild(tempLink);
-          tempLink.click();
-          document.body.removeChild(tempLink);
-          setTimeout(() => window.URL.revokeObjectURL(blobUrl), 2000);
-        } catch (err) {
-          // Fallback if fetch is restricted
-          const fallbackLink = document.createElement('a');
-          fallbackLink.href = 'Abdul_Samad_Resume.pdf';
-          fallbackLink.download = targetFilename;
-          fallbackLink.target = '_blank';
-          document.body.appendChild(fallbackLink);
-          fallbackLink.click();
-          document.body.removeChild(fallbackLink);
-        }
-        closeMobileDrawer();
+      resumeBtn.addEventListener('click', () => {
+        setTimeout(closeMobileDrawer, 300);
       });
     }
 
