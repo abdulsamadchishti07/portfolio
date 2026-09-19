@@ -1184,6 +1184,8 @@ dialog#case-study-modal::backdrop {
 .footer-links {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .footer-link {
@@ -1194,6 +1196,26 @@ dialog#case-study-modal::backdrop {
 
 .footer-link:hover {
   color: var(--color-terracotta);
+}
+
+.footer-resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-terracotta);
+  font-weight: 600;
+}
+
+.footer-resume-link:hover {
+  color: var(--color-terracotta-hover);
+}
+
+.footer-resume-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.footer-resume-link:hover svg {
+  transform: translateY(1px);
 }
 
 /* ==========================================================================
