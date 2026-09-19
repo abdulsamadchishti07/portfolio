@@ -1,0 +1,17 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)\\.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Abdul Samad Resume.pdf\"; filename*=UTF-8''Abdul%20Samad%20Resume.pdf"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        }
+      ]
+    }
+  ]
+}
