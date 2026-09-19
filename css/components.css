@@ -879,6 +879,13 @@ dialog#case-study-modal::backdrop {
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   position: relative;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.timeline-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .timeline-card::before {
@@ -914,6 +921,13 @@ dialog#case-study-modal::backdrop {
   font-size: var(--text-sm);
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.85rem;
 }
 
 /* ==========================================================================
