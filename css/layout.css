@@ -212,6 +212,64 @@
   transform: rotate(15deg);
 }
 
+/* Resume / CV Download Action */
+.btn-resume-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-resume-nav .icon-slot {
+  width: 18px;
+  height: 18px;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0;
+}
+
+.btn-resume-nav .icon-slot img {
+  width: 14px;
+  height: 14px;
+  transition: filter var(--transition-fast);
+}
+
+.btn-resume-nav:hover {
+  background-color: var(--color-terracotta);
+  color: #FFFFFF;
+  border-color: var(--color-terracotta);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--color-terracotta-soft);
+}
+
+.btn-resume-nav:hover .icon-slot img {
+  filter: brightness(0) invert(1) !important;
+}
+
+[data-theme="dark"] .btn-resume-nav {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .btn-resume-nav:hover {
+  background-color: var(--color-terracotta);
+  border-color: var(--color-terracotta);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-resume-nav:hover .icon-slot img {
+  filter: brightness(0) invert(1) !important;
+}
+
 /* Mobile Nav Toggle */
 .btn-mobile-menu {
   display: none;
@@ -294,4 +352,47 @@
 .mobile-nav-link:hover, .mobile-nav-link.active {
   color: var(--color-terracotta);
   background-color: var(--color-terracotta-soft);
+}
+
+/* Mobile Drawer Resume Footer */
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-mobile-resume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-terracotta);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--color-terracotta-soft);
+  transition: all var(--transition-fast);
+}
+
+.btn-mobile-resume:hover {
+  background-color: var(--color-terracotta-hover);
+  transform: translateY(-1px);
+}
+
+.btn-mobile-resume .icon-slot {
+  width: 18px;
+  height: 18px;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0;
+}
+
+.btn-mobile-resume .icon-slot img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1) !important;
 }

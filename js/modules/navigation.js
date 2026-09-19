@@ -60,7 +60,7 @@ export function initNavigation() {
     });
 
     // Close on link click
-    mobileDrawer.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    mobileDrawer.querySelectorAll('.mobile-nav-link, .btn-mobile-resume').forEach((link) => {
       link.addEventListener('click', () => {
         closeMobileDrawer();
       });

@@ -59,8 +59,8 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css?v=1.1">
+  <link rel="stylesheet" href="css/components.css?v=1.1">
 
   <!-- Structured Data (JSON-LD) for Search Engines -->
   <script type="application/ld+json">
@@ -151,6 +151,14 @@
       <div class="nav-divider" aria-hidden="true"></div>
 
       <div class="nav-actions">
+        <!-- Download CV / Resume Button -->
+        <a href="Abdul_Samad_Resume.pdf" download="Abdul_Samad_Resume.pdf" class="btn-resume-nav" target="_blank" rel="noopener noreferrer" aria-label="Download Abdul Samad Chishti Resume" title="Download CV / Resume">
+          <div class="icon-slot icon-sm">
+            <img src="assets/icons/download.svg" alt="Download" onerror="this.parentElement.textContent='↓';">
+          </div>
+          <span class="btn-resume-label">Resume</span>
+        </a>
+
         <!-- Theme Toggle Button with designated Icon Slot -->
         <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Switch Theme" title="Toggle Light/Dark Theme">
           <div class="icon-slot icon-sm">
@@ -189,6 +197,15 @@
         <a href="#experience" class="mobile-nav-link">Experience & Education</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </nav>
+
+      <div class="mobile-drawer-footer">
+        <a href="Abdul_Samad_Resume.pdf" download="Abdul_Samad_Resume.pdf" class="btn-mobile-resume" target="_blank" rel="noopener noreferrer" aria-label="Download CV / Resume">
+          <div class="icon-slot icon-sm">
+            <img src="assets/icons/download.svg" alt="Download" onerror="this.parentElement.textContent='↓';">
+          </div>
+          <span>Download CV / Resume</span>
+        </a>
+      </div>
     </div>
   </aside>
 
