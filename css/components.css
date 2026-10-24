@@ -120,6 +120,16 @@
   gap: 10px;
 }
 
+.kicker > * {
+  white-space: nowrap;
+}
+
+.kicker-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .kicker a {
   color: inherit;
 }
