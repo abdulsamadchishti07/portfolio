@@ -7,8 +7,8 @@ export function initNavigation() {
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
   const sections = document.querySelectorAll('section[id]');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileDrawer = document.getElementById('mobile-nav-drawer');
-  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const mobileDropdown = document.getElementById('mobile-nav-dropdown');
+  const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
 
   // IntersectionObserver for Section Spying
   const observerOptions = {
@@ -41,56 +41,71 @@ export function initNavigation() {
     });
   }
 
-  // Mobile Drawer Toggle
-  if (mobileMenuBtn && mobileDrawer) {
-    mobileMenuBtn.addEventListener('click', () => {
-      openMobileDrawer();
-    });
+  // Mobile Dropdown Toggle
+  if (mobileMenuBtn && mobileDropdown) {
+    const iconSpan = mobileMenuBtn.querySelector('span');
 
-    if (mobileCloseBtn) {
-      mobileCloseBtn.addEventListener('click', () => {
-        closeMobileDrawer();
-      });
-    }
+    const openDropdown = () => {
+      mobileDropdown.classList.add('open');
+      mobileDropdown.setAttribute('aria-hidden', 'false');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      if (iconSpan) iconSpan.textContent = '✕';
+      if (mobileBackdrop) {
+        mobileBackdrop.classList.add('open');
+        mobileBackdrop.setAttribute('aria-hidden', 'false');
+      }
+    };
 
-    mobileDrawer.addEventListener('click', (e) => {
-      if (e.target === mobileDrawer) {
-        closeMobileDrawer();
+    const closeDropdown = () => {
+      mobileDropdown.classList.remove('open');
+      mobileDropdown.setAttribute('aria-hidden', 'true');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      if (iconSpan) iconSpan.textContent = '☰';
+      if (mobileBackdrop) {
+        mobileBackdrop.classList.remove('open');
+        mobileBackdrop.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileDropdown.classList.contains('open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
       }
     });
 
+    if (mobileBackdrop) {
+      mobileBackdrop.addEventListener('click', closeDropdown);
+    }
+
     // Close on link click
-    mobileDrawer.querySelectorAll('.mobile-nav-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMobileDrawer();
-      });
+    mobileDropdown.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', closeDropdown);
     });
 
-    // Close drawer when resume download link is clicked
+    // Close on resume download click
     const resumeBtn = document.getElementById('btn-download-resume');
     if (resumeBtn) {
       resumeBtn.addEventListener('click', () => {
-        setTimeout(closeMobileDrawer, 300);
+        setTimeout(closeDropdown, 300);
       });
     }
 
+    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
-        closeMobileDrawer();
+      if (e.key === 'Escape' && mobileDropdown.classList.contains('open')) {
+        closeDropdown();
       }
     });
-  }
 
-  function openMobileDrawer() {
-    mobileDrawer.classList.add('open');
-    mobileDrawer.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobileDrawer() {
-    mobileDrawer.classList.remove('open');
-    mobileDrawer.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    // Close if user clicks outside
+    document.addEventListener('click', (e) => {
+      if (mobileDropdown.classList.contains('open') && !mobileDropdown.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        closeDropdown();
+      }
+    });
   }
 
   // Scroll Behavior: Hide when scrolling down, reveal when scrolling up
@@ -100,6 +115,11 @@ export function initNavigation() {
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
+
+    // If dropdown is open, keep dock pinned
+    if (mobileDropdown && mobileDropdown.classList.contains('open')) {
+      return;
+    }
 
     if (currentScrollY <= 80) {
       // Always visible at the top of the page
