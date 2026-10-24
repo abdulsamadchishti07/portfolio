@@ -711,10 +711,28 @@
   border-top: 1px solid rgba(239, 233, 221, 0.08);
 }
 
+.ambient-vol-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.ambient-vol-btn:hover {
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
 .ambient-volume-bar .vol-icon {
   font-size: 12px;
-  color: var(--text-muted);
+  color: inherit;
   width: 16px;
+  display: block;
 }
 
 .ambient-slider {
