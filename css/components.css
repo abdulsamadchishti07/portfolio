@@ -96,7 +96,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: 270px;
+    padding-top: calc(84px + min(60vw, 310px));
   }
   .hero-film .intro {
     position: relative;

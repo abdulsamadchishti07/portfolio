@@ -217,12 +217,12 @@ function initHeroField() {
 
     // Ambient stars in matrix
     ctx.font = mono(400, FS);
-    for (let k = 0; k < 34; k++) {
+    for (let k = 0; k < 36; k++) {
       const tk = t * 0.7 + hash(k, 9);
       const i = (hash(k, Math.floor(tk)) * COLS * ROWS) | 0;
       const x = i % COLS, y = (i / COLS) | 0;
       const a = Math.sin((tk % 1) * Math.PI);
-      ctx.globalAlpha = 0.42 * a;
+      ctx.globalAlpha = 0.45 * a;
       ctx.fillStyle = "#efe9dd";
       ctx.fillText(charAt(x, y, row), x * CW, (y + 1) * LH);
     }
@@ -237,8 +237,8 @@ function initHeroField() {
     }
 
     // Real-time data pulse traveling down the pipeline nodes (0 -> 1 -> 2 -> 3 -> 4)
-    const pulseCycle = (t % 2.4) / 2.4; // 0 to 1
-    const activeTier = Math.floor(pulseCycle * 5); // 0 to 4
+    const pulseCycle = (t % 2.4) / 2.4;
+    const activeTier = Math.floor(pulseCycle * 5);
     const pulseSub = (pulseCycle * 5) % 1;
 
     // Draw the ASCII architecture pipeline on top of the matrix
@@ -718,7 +718,7 @@ function initSunCameo() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function boot() {
   initHeroField();
   initDecodeHeadings();
   initCodeInspector();
@@ -744,4 +744,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}

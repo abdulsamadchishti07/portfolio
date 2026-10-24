@@ -46,14 +46,18 @@ export function initNavigation() {
     const iconSpan = mobileMenuBtn.querySelector('span');
 
     const openDropdown = () => {
-      mobileDropdown.classList.add('open');
-      mobileDropdown.setAttribute('aria-hidden', 'false');
-      mobileMenuBtn.setAttribute('aria-expanded', 'true');
-      if (iconSpan) iconSpan.textContent = '✕';
-      if (mobileBackdrop) {
-        mobileBackdrop.classList.add('open');
-        mobileBackdrop.setAttribute('aria-hidden', 'false');
-      }
+      mobileDropdown.style.display = 'flex';
+      if (mobileBackdrop) mobileBackdrop.style.display = 'block';
+      requestAnimationFrame(() => {
+        mobileDropdown.classList.add('open');
+        mobileDropdown.setAttribute('aria-hidden', 'false');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        if (iconSpan) iconSpan.textContent = '✕';
+        if (mobileBackdrop) {
+          mobileBackdrop.classList.add('open');
+          mobileBackdrop.setAttribute('aria-hidden', 'false');
+        }
+      });
     };
 
     const closeDropdown = () => {
@@ -65,6 +69,12 @@ export function initNavigation() {
         mobileBackdrop.classList.remove('open');
         mobileBackdrop.setAttribute('aria-hidden', 'true');
       }
+      setTimeout(() => {
+        if (!mobileDropdown.classList.contains('open')) {
+          mobileDropdown.style.display = 'none';
+          if (mobileBackdrop) mobileBackdrop.style.display = 'none';
+        }
+      }, 240);
     };
 
     mobileMenuBtn.addEventListener('click', (e) => {
