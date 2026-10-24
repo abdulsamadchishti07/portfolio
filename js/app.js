@@ -4,7 +4,7 @@
  * code-strip metric bars, request ladder, and cheeky light-mode refusal cameo.
  */
 
-import { initNavigation } from './modules/navigation.js?v=3.0';
+import { initNavigation } from './modules/navigation.js?v=3.1';
 import { initProjects } from './modules/projects.js?v=3.0';
 import { initContact } from './modules/contact.js?v=3.0';
 
@@ -101,8 +101,7 @@ function initHeroField() {
         "           │",
         "           ▼",
         "[201 CREATED: 0 RACES]"
-      ],
-      tierLines: [0, 3, 6, 9, 12]
+      ]
     },
     {
       id: "taskflow",
@@ -121,8 +120,7 @@ function initHeroField() {
         "           │",
         "           ▼",
         "[200 OK: CACHED TO REDIS]"
-      ],
-      tierLines: [0, 3, 6, 9, 12]
+      ]
     }
   ];
 
@@ -135,31 +133,32 @@ function initHeroField() {
   function mapPipelineCells() {
     pipelineCells = [];
     const pipe = PIPELINES[currentPipelineIdx];
-    const lines = pipe.lines;
-    const maxLineLen = Math.max(...lines.map((l) => l.length));
+    const isMobile = W <= 900;
+    const rawLines = isMobile
+      ? pipe.lines.filter((_, idx) => idx % 3 !== 1)
+      : pipe.lines;
+    const maxLineLen = Math.max(...rawLines.map((l) => l.length));
 
     let c0, r0;
-    if (W > 900) {
+    if (!isMobile) {
       c0 = Math.max(0, Math.floor(COLS * 0.72 - maxLineLen / 2));
-      r0 = Math.max(1, Math.floor((ROWS - lines.length) * 0.46));
+      r0 = Math.max(1, Math.floor((ROWS - rawLines.length) * 0.46));
     } else {
       c0 = Math.max(0, Math.floor((COLS - maxLineLen) / 2));
-      r0 = Math.max(1, Math.floor((ROWS - lines.length) * 0.18));
+      const introEl = cv.parentElement?.querySelector(".intro");
+      const introTop = introEl ? introEl.offsetTop : 270;
+      const topRow = Math.ceil(74 / LH);
+      const availRows = Math.floor((introTop - 14) / LH) - topRow;
+      r0 = topRow + Math.max(0, Math.floor((availRows - rawLines.length) / 2));
     }
 
-    lines.forEach((lineText, rIdx) => {
+    const step = isMobile ? 2 : 3;
+    rawLines.forEach((lineText, rIdx) => {
       const y = r0 + rIdx;
       if (y >= ROWS) return;
 
-      let tier = -1;
-      let isArrow = false;
-
-      if (pipe.tierLines.includes(rIdx)) {
-        tier = pipe.tierLines.indexOf(rIdx);
-      } else {
-        isArrow = true;
-        tier = Math.floor(rIdx / 3);
-      }
+      const isArrow = rIdx % step !== 0;
+      const tier = Math.floor(rIdx / step);
 
       for (let cIdx = 0; cIdx < lineText.length; cIdx++) {
         const ch = lineText[cIdx];
