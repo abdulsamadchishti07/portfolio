@@ -294,16 +294,22 @@
   filter: drop-shadow(0 0 12px rgba(180, 156, 255, 0.45));
 }
 
-/* Mobile Navigation Dropdown */
-@media (min-width: 821px) {
-  .mobile-nav-backdrop,
-  .mobile-nav-dropdown {
-    display: none !important;
+/* Mobile Navigation Dropdown — Completely hidden on desktop */
+.mobile-nav-backdrop,
+.mobile-nav-dropdown {
+  display: none !important;
+}
+
+@media (max-width: 820px) {
+  .mobile-nav-backdrop.open {
+    display: block !important;
+  }
+  .mobile-nav-dropdown.open {
+    display: flex !important;
   }
 }
 
 .mobile-nav-backdrop {
-  display: none;
   position: fixed;
   inset: 0;
   z-index: 998;
@@ -316,7 +322,6 @@
 }
 
 .mobile-nav-backdrop.open {
-  display: block;
   opacity: 1;
   pointer-events: auto;
 }

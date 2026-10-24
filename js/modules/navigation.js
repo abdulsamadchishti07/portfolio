@@ -46,6 +46,8 @@ export function initNavigation() {
     const iconSpan = mobileMenuBtn.querySelector('span');
 
     const openDropdown = () => {
+      mobileDropdown.removeAttribute('hidden');
+      if (mobileBackdrop) mobileBackdrop.removeAttribute('hidden');
       mobileDropdown.style.display = 'flex';
       if (mobileBackdrop) mobileBackdrop.style.display = 'block';
       requestAnimationFrame(() => {
@@ -72,7 +74,11 @@ export function initNavigation() {
       setTimeout(() => {
         if (!mobileDropdown.classList.contains('open')) {
           mobileDropdown.style.display = 'none';
-          if (mobileBackdrop) mobileBackdrop.style.display = 'none';
+          mobileDropdown.setAttribute('hidden', '');
+          if (mobileBackdrop) {
+            mobileBackdrop.style.display = 'none';
+            mobileBackdrop.setAttribute('hidden', '');
+          }
         }
       }, 240);
     };
@@ -94,6 +100,13 @@ export function initNavigation() {
     mobileDropdown.querySelectorAll('.mobile-nav-link').forEach((link) => {
       link.addEventListener('click', closeDropdown);
     });
+
+    // Close on window resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820 && mobileDropdown.classList.contains('open')) {
+        closeDropdown();
+      }
+    }, { passive: true });
 
     // Close on resume download click
     const resumeBtn = document.getElementById('btn-download-resume');
