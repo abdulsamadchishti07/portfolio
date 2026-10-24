@@ -1,10 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
-    <linearGradient id="favicon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E87A52"/>
-      <stop offset="100%" stop-color="#D9653B"/>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161722"/>
+      <stop offset="100%" stop-color="#0a0b0f"/>
     </linearGradient>
+    <filter id="violet-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="#b49cff" flood-opacity="0.75"/>
+    </filter>
+    <filter id="emerald-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="#4eedb0" flood-opacity="0.8"/>
+    </filter>
   </defs>
-  <rect width="32" height="32" rx="9" fill="url(#favicon-grad)"/>
-  <text x="16" y="21.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">AS</text>
+
+  <!-- Obsidian Tile Background -->
+  <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#bg-grad)" stroke="#262838" stroke-width="1.2"/>
+
+  <!-- Neon Terminal Prompt >_ -->
+  <g filter="url(#violet-glow)">
+    <polyline points="8,10.5 14.5,16 8,21.5" fill="none" stroke="#b49cff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#emerald-glow)">
+    <rect x="17.5" y="19.5" width="7" height="2.4" rx="1.2" fill="#4eedb0"/>
+  </g>
 </svg>
