@@ -288,6 +288,489 @@
 }
 
 /* ==========================================================================
+   Ambient Lo-Fi Radio Player (Symmetrically balances #motion on bottom-left)
+   ========================================================================== */
+.ambient-widget {
+  position: fixed;
+  z-index: 900;
+  left: 24px;
+  bottom: 24px;
+}
+
+.ambient-pill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font: 500 13px var(--font-sans);
+  color: var(--text-primary);
+  padding: 9px 15px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(239, 233, 221, 0.14);
+  background: rgba(10, 9, 8, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  user-select: none;
+}
+
+.ambient-pill:hover,
+.ambient-widget.is-open .ambient-pill {
+  border-color: rgba(180, 156, 255, 0.45);
+  background: rgba(18, 16, 22, 0.78);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(180, 156, 255, 0.15);
+}
+
+.ambient-pill:focus-visible,
+.ambient-play-btn:focus-visible,
+.ambient-close-btn:focus-visible,
+.ambient-track-item:focus-visible,
+.ambient-slider:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 2px;
+}
+
+.ambient-pill-icon {
+  font-size: 13px;
+  color: var(--color-cyan);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.ambient-widget.is-playing .ambient-pill-icon {
+  color: #4eedb0;
+  animation: ambient-pill-pulse 1.8s infinite ease-in-out;
+}
+
+.ambient-pill-title {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Mini Equalizer inside pill */
+.ambient-pill-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  width: 11px;
+  height: 12px;
+  margin-left: 2px;
+}
+
+.ambient-pill-eq .bar {
+  flex: 1;
+  background: var(--text-muted);
+  border-radius: 1px;
+  height: 3px;
+  transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.ambient-widget.is-playing .ambient-pill-eq .bar {
+  background: #4eedb0;
+  animation: ambient-eq-bounce 1s infinite ease-in-out alternate;
+}
+
+.ambient-widget.is-playing .ambient-pill-eq .bar:nth-child(1) {
+  animation-duration: 0.65s;
+}
+.ambient-widget.is-playing .ambient-pill-eq .bar:nth-child(2) {
+  animation-duration: 0.9s;
+  animation-delay: 0.15s;
+}
+.ambient-widget.is-playing .ambient-pill-eq .bar:nth-child(3) {
+  animation-duration: 0.75s;
+  animation-delay: 0.3s;
+}
+
+/* Obsidian Popover Card */
+.ambient-popover {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  width: 320px;
+  background: rgba(12, 13, 18, 0.95);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(239, 233, 221, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(180, 156, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transform-origin: bottom left;
+  pointer-events: none;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color var(--transition-fast);
+  z-index: 20;
+}
+
+.ambient-popover[hidden] {
+  display: none;
+}
+
+.ambient-widget.is-open .ambient-popover {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.ambient-popover:hover {
+  border-color: rgba(180, 156, 255, 0.3);
+}
+
+.ambient-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(239, 233, 221, 0.08);
+}
+
+.ambient-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.ambient-card-badge .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ambient-widget.is-playing .ambient-card-badge .live-dot {
+  background: #4eedb0;
+  box-shadow: 0 0 8px #4eedb0;
+}
+
+.ambient-widget.is-playing .ambient-card-badge .badge-text {
+  color: var(--color-cyan);
+}
+
+.ambient-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.ambient-close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(239, 233, 221, 0.08);
+}
+
+/* Now Playing Banner */
+.ambient-now-playing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(239, 233, 221, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+/* 5-column Full Equalizer */
+.ambient-eq-visual {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  width: 22px;
+  height: 24px;
+  padding: 2px 0;
+  flex-shrink: 0;
+}
+
+.ambient-eq-visual .eq-col {
+  flex: 1;
+  background: rgba(239, 233, 221, 0.2);
+  border-radius: 1px;
+  height: 4px;
+  transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.ambient-widget.is-playing .ambient-eq-visual .eq-col {
+  background: #4eedb0;
+  animation: ambient-eq-col-bounce 1s infinite ease-in-out alternate;
+}
+
+.ambient-widget.is-playing .ambient-eq-visual .eq-col:nth-child(1) { animation-duration: 0.6s; }
+.ambient-widget.is-playing .ambient-eq-visual .eq-col:nth-child(2) { animation-duration: 0.85s; animation-delay: 0.1s; }
+.ambient-widget.is-playing .ambient-eq-visual .eq-col:nth-child(3) { animation-duration: 0.5s; animation-delay: 0.25s; }
+.ambient-widget.is-playing .ambient-eq-visual .eq-col:nth-child(4) { animation-duration: 0.95s; animation-delay: 0.15s; }
+.ambient-widget.is-playing .ambient-eq-visual .eq-col:nth-child(5) { animation-duration: 0.7s; animation-delay: 0.3s; }
+
+.ambient-track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ambient-now-title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ambient-now-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.ambient-widget.is-playing .ambient-now-status {
+  color: #4eedb0;
+}
+
+.ambient-play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(180, 156, 255, 0.35);
+  background: rgba(180, 156, 255, 0.12);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.ambient-play-btn:hover {
+  background: rgba(180, 156, 255, 0.25);
+  border-color: var(--color-violet);
+  transform: scale(1.05);
+}
+
+.ambient-play-btn .play-icon {
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+.ambient-widget.is-playing .ambient-play-btn .play-icon {
+  margin-left: 0;
+  font-size: 9px;
+  letter-spacing: -1px;
+}
+
+/* Track Selection List */
+.ambient-track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 230px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.ambient-track-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ambient-track-list::-webkit-scrollbar-track {
+  background: rgba(239, 233, 221, 0.04);
+  border-radius: 2px;
+}
+
+.ambient-track-list::-webkit-scrollbar-thumb {
+  background: rgba(180, 156, 255, 0.25);
+  border-radius: 2px;
+}
+
+.ambient-track-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 156, 255, 0.5);
+}
+
+.ambient-track-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-xs);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.ambient-track-item:hover {
+  background: rgba(239, 233, 221, 0.05);
+  color: var(--text-primary);
+}
+
+.ambient-track-item.is-active {
+  background: rgba(180, 156, 255, 0.08);
+  border-color: rgba(180, 156, 255, 0.22);
+  color: var(--text-primary);
+}
+
+.ambient-track-item .track-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ambient-track-item.is-active .track-num {
+  color: var(--color-cyan);
+}
+
+.ambient-track-item .track-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ambient-track-item .track-name {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ambient-track-item .track-genre {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ambient-track-item .track-indicator {
+  font-size: 8px;
+  color: transparent;
+  transition: color var(--transition-fast);
+}
+
+.ambient-track-item.is-active .track-indicator {
+  color: #4eedb0;
+}
+
+/* Volume Slider Bar */
+.ambient-volume-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(239, 233, 221, 0.08);
+}
+
+.ambient-volume-bar .vol-icon {
+  font-size: 12px;
+  color: var(--text-muted);
+  width: 16px;
+}
+
+.ambient-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(239, 233, 221, 0.16);
+  outline: none;
+  cursor: pointer;
+}
+
+.ambient-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 2px solid #0c0d12;
+  box-shadow: 0 0 6px rgba(180, 156, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+.ambient-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: var(--color-cyan);
+}
+
+.ambient-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 2px solid #0c0d12;
+  box-shadow: 0 0 6px rgba(180, 156, 255, 0.6);
+  cursor: pointer;
+}
+
+.ambient-volume-bar .vol-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+}
+
+@keyframes ambient-eq-bounce {
+  0% { height: 3px; }
+  100% { height: 11px; }
+}
+
+@keyframes ambient-eq-col-bounce {
+  0% { height: 4px; }
+  50% { height: 18px; }
+  100% { height: 8px; }
+}
+
+@keyframes ambient-pill-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-widget.is-playing .ambient-pill-eq .bar,
+  .ambient-widget.is-playing .ambient-eq-visual .eq-col,
+  .ambient-widget.is-playing .ambient-pill-icon {
+    animation: none !important;
+  }
+  .ambient-widget.is-playing .ambient-pill-eq .bar {
+    height: 7px;
+  }
+  .ambient-widget.is-playing .ambient-eq-visual .eq-col {
+    height: 12px;
+  }
+}
+
+/* ==========================================================================
    Text Toggles / Switch Tabs (Ponytail style)
    ========================================================================== */
 .switch {
@@ -1566,6 +2049,28 @@ dialog#case-study-modal::backdrop {
     bottom: 16px;
     padding: 7px 12px;
     font-size: 12px;
+  }
+  .ambient-widget {
+    left: 18px;
+    bottom: 16px;
+  }
+  .ambient-pill {
+    padding: 7px 12px;
+    font-size: 12px;
+    gap: 7px;
+  }
+  .ambient-popover {
+    width: calc(100vw - 36px);
+    max-width: 310px;
+    left: 0;
+    bottom: calc(100% + 10px);
+    padding: 14px;
+  }
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .ambient-widget {
+      bottom: max(16px, env(safe-area-inset-bottom, 16px));
+      left: max(18px, env(safe-area-inset-left, 18px));
+    }
   }
   .rv-out {
     padding: 18px 16px;

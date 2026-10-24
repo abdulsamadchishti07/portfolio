@@ -7,6 +7,7 @@
 import { initNavigation } from './modules/navigation.js?v=3.1';
 import { initProjects } from './modules/projects.js?v=3.0';
 import { initContact } from './modules/contact.js?v=3.0';
+import { initAmbientRadio } from './modules/ambient.js?v=5.2';
 
 // Real Python/FastAPI/Redis/PostgreSQL source texture from Abdul Samad's backend repos
 const SRC = `from fastapi import APIRouter, Depends, HTTPException, status from sqlalchemy.ext.asyncio import AsyncSession from sqlalchemy import select, update from app.core.redis import redis_client from app.core.security import verify_jwt, require_role router = APIRouter(prefix="/api/v1/bookings", tags=["Bookings"]) @router.post("/reserve", status_code=status.HTTP_201_CREATED) async def reserve_seat(payload: SeatReservationCreate, user: User = Depends(require_role("buyer", "admin")), db: AsyncSession = Depends(get_db)): lock_key = f"lock:event:{payload.event_id}:seat:{payload.seat_no}" async with redis_client.lock(lock_key, timeout=10, blocking_timeout=2): stmt = select(EventSeat).where(EventSeat.event_id == payload.event_id, EventSeat.seat_no == payload.seat_no).with_for_update() seat = (await db.execute(stmt)).scalar_one_or_none() if not seat or seat.is_reserved: raise HTTPException(status_code=409, detail="Seat already reserved by another transaction") seat.is_reserved = True seat.reserved_by = user.id booking = Booking(user_id=user.id, event_id=payload.event_id, seat_id=seat.id, status=BookingStatus.CONFIRMED) db.add(booking) await db.commit() await db.refresh(booking) return booking `;
@@ -729,6 +730,7 @@ function boot() {
   initNavigation();
   initProjects();
   initContact();
+  initAmbientRadio();
 
   // Wire the Inspector's "Full Architecture Diagram" button to open the Case Study modal
   const rvModalBtn = $("#rv-modal-btn");

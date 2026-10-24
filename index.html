@@ -52,7 +52,7 @@
   <link rel="stylesheet" href="css/tokens.css?v=5.0">
   <link rel="stylesheet" href="css/base.css?v=5.0">
   <link rel="stylesheet" href="css/layout.css?v=5.0">
-  <link rel="stylesheet" href="css/components.css?v=5.0">
+  <link rel="stylesheet" href="css/components.css?v=5.2">
 
   <!-- Structured Data (JSON-LD) for Search Engines -->
   <script type="application/ld+json">
@@ -233,6 +233,121 @@
           <a class="textlink" href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf">Download <span class="holo">resume.pdf</span> ↗</a>
         </div>
       </div>
+
+      <!-- Dedicated Opt-in Ambient Lo-Fi Terminal Radio (Symmetrically balances #motion on bottom-right) -->
+      <aside id="ambient-widget" class="ambient-widget" aria-label="Ambient Lo-Fi Audio Player">
+        <!-- Floating Pill Trigger Button -->
+        <button id="ambient-pill-btn"
+                class="ambient-pill"
+                type="button"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="ambient-popover"
+                aria-label="Open Lo-Fi Ambient Radio">
+          <span class="ambient-pill-icon" aria-hidden="true">♫</span>
+          <span class="ambient-pill-title">Lo-Fi Terminal</span>
+          <span class="ambient-pill-eq" aria-hidden="true">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+        </button>
+
+        <!-- Dark Obsidian Popover Card Directly Above Button -->
+        <div id="ambient-popover"
+             class="ambient-popover"
+             role="dialog"
+             aria-modal="false"
+             aria-label="Lo-Fi Ambient Radio Controller"
+             hidden>
+          <header class="ambient-card-header">
+            <div class="ambient-card-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="badge-text">AMBIENT RADIO</span>
+            </div>
+            <button id="ambient-close-btn" class="ambient-close-btn" type="button" aria-label="Close ambient radio">✕</button>
+          </header>
+
+          <div class="ambient-now-playing">
+            <div class="ambient-eq-visual" aria-hidden="true">
+              <span class="eq-col"></span>
+              <span class="eq-col"></span>
+              <span class="eq-col"></span>
+              <span class="eq-col"></span>
+              <span class="eq-col"></span>
+            </div>
+            <div class="ambient-track-info">
+              <div id="ambient-now-title" class="ambient-now-title">Aruarian Dance</div>
+              <div id="ambient-now-status" class="ambient-now-status">Paused · Opt-in</div>
+            </div>
+            <button id="ambient-play-toggle" class="ambient-play-btn" type="button" aria-label="Play Lo-Fi audio">
+              <span class="play-icon" aria-hidden="true">▶</span>
+            </button>
+          </div>
+
+          <!-- Track Selection List -->
+          <div class="ambient-track-list" role="radiogroup" aria-label="Select ambient track">
+            <button class="ambient-track-item is-active" type="button" role="radio" aria-checked="true" data-track-index="0">
+              <span class="track-num">01</span>
+              <div class="track-meta">
+                <span class="track-name">Aruarian Dance</span>
+                <span class="track-genre">Nujabes · Lo-Fi Classic</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="1">
+              <span class="track-num">02</span>
+              <div class="track-meta">
+                <span class="track-name">Affection</span>
+                <span class="track-genre">Jinsang · Lo-Fi Beats</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="2">
+              <span class="track-num">03</span>
+              <div class="track-meta">
+                <span class="track-name">Monday Loop</span>
+                <span class="track-genre">Tomppabeats · Chill Vibes</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="3">
+              <span class="track-num">04</span>
+              <div class="track-meta">
+                <span class="track-name">Bliss</span>
+                <span class="track-genre">Lo-Fi Hip Hop Beat · Chill</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="4">
+              <span class="track-num">05</span>
+              <div class="track-meta">
+                <span class="track-name">Hideaway</span>
+                <span class="track-genre">Chill Waves · Ambient</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+          </div>
+
+          <!-- Volume Controls -->
+          <div class="ambient-volume-bar">
+            <span id="ambient-vol-icon" class="vol-icon" aria-hidden="true">🔊</span>
+            <input id="ambient-volume-slider"
+                   type="range"
+                   min="0"
+                   max="100"
+                   value="60"
+                   step="1"
+                   class="ambient-slider"
+                   aria-label="Ambient volume level">
+            <span id="ambient-vol-val" class="vol-value">60%</span>
+          </div>
+        </div>
+      </aside>
 
       <button id="motion" type="button" aria-pressed="false">
         <i>❚❚</i><span>Pause motion</span>
@@ -937,6 +1052,6 @@
   </footer>
 
   <!-- Application Module Script -->
-  <script type="module" src="js/app.js?v=5.0"></script>
+  <script type="module" src="js/app.js?v=5.2"></script>
 </body>
 </html>
