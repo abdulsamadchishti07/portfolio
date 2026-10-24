@@ -138,7 +138,7 @@
           <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="nav-link gh-pill">GitHub</a>
         </div>
 
-        <button id="mobile-menu-btn" class="btn-mobile-menu" aria-label="Open navigation menu" title="Open Navigation Menu">
+        <button id="mobile-menu-btn" class="btn-mobile-menu" aria-label="Open navigation menu" aria-expanded="false" title="Open Navigation Menu">
           <span>☰</span>
         </button>
       </nav>
@@ -153,31 +153,41 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-hidden="true" role="dialog" aria-label="Mobile Navigation Menu">
-    <div class="mobile-nav-panel">
-      <div class="mobile-nav-header">
-        <div class="nav-brand">
-          <span>samad</span><span class="cur" aria-hidden="true"></span>
-        </div>
-        <button id="mobile-close-btn" class="modal-close-btn" aria-label="Close menu">✕</button>
-      </div>
-      <nav class="mobile-nav-links">
-        <a href="#about" class="mobile-nav-link">Top</a>
-        <a href="#architecture" class="mobile-nav-link">01 · Code &amp; Architecture</a>
-        <a href="#work" class="mobile-nav-link">02 · Projects</a>
-        <a href="#skills" class="mobile-nav-link">03 · Stack &amp; Ladder</a>
-        <a href="#experience" class="mobile-nav-link">04 · Experience</a>
-        <a href="#contact" class="mobile-nav-link">05 · Contact</a>
-      </nav>
-
-      <div class="mobile-drawer-footer">
-        <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" id="btn-download-resume" class="btn-mobile-resume" aria-label="Download Abdul Samad Resume">
-          <span>Download Resume (PDF) ↓</span>
-        </a>
-      </div>
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <div id="mobile-nav-dropdown" class="mobile-nav-dropdown" aria-hidden="true" role="dialog" aria-label="Mobile Navigation Menu">
+    <nav class="mobile-nav-links">
+      <a href="#about" class="mobile-nav-link">
+        <span>Top</span>
+        <span class="mobile-nav-hint">↑</span>
+      </a>
+      <a href="#architecture" class="mobile-nav-link">
+        <span>01 · Code &amp; Architecture</span>
+        <span class="mobile-nav-hint">↗</span>
+      </a>
+      <a href="#work" class="mobile-nav-link">
+        <span>02 · Projects</span>
+        <span class="mobile-nav-hint">↗</span>
+      </a>
+      <a href="#skills" class="mobile-nav-link">
+        <span>03 · Stack &amp; Ladder</span>
+        <span class="mobile-nav-hint">↗</span>
+      </a>
+      <a href="#experience" class="mobile-nav-link">
+        <span>04 · Experience</span>
+        <span class="mobile-nav-hint">↗</span>
+      </a>
+      <a href="#contact" class="mobile-nav-link">
+        <span>05 · Contact</span>
+        <span class="mobile-nav-hint">↗</span>
+      </a>
+    </nav>
+    <div class="mobile-dropdown-footer">
+      <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" id="btn-download-resume" class="btn-mobile-resume" aria-label="Download Abdul Samad Resume">
+        <span>Download Resume (PDF) ↓</span>
+      </a>
     </div>
-  </aside>
+  </div>
 
   <!-- Main Content -->
   <main id="main-content">
@@ -191,7 +201,7 @@
           <span>ABDUL SAMAD CHISHTI</span>
           <span>·</span>
           <span class="holo">PYTHON / FASTAPI / DJANGO</span>
-          <span>·</span>
+          <span class="pipeline-sep">·</span>
           <button id="pipeline-toggle-btn" class="pipeline-pill" type="button" aria-label="Switch active architecture pipeline" title="Click to switch live architecture pipeline">
             <span id="pipeline-label">Pipeline: Concurrency Lock</span>
             <i aria-hidden="true">↻</i>
@@ -276,21 +286,21 @@
             <!-- Code-Strip Bars (Ponytail Benchmark style) -->
             <div class="chart" id="chart">
               <div class="m" data-v="100">
-                <div class="ml"><b class="holo">0 race</b><span>oversold seats under concurrency</span></div>
+                <div class="ml"><b class="holo">0 race</b><span>oversold seats · Redis Lock + FOR UPDATE</span></div>
                 <div>
-                  <div class="bar" style="--w:100%"><s></s><em>Redis Lock + SELECT FOR UPDATE</em></div>
+                  <div class="bar" style="--w:100%"><s></s><em>100%</em></div>
                 </div>
               </div>
               <div class="m" data-v="96">
-                <div class="ml"><b class="holo">4-tier</b><span>workspace RBAC isolation</span></div>
+                <div class="ml"><b class="holo">4-tier</b><span>workspace RBAC · Owner / Admin / Member / Viewer</span></div>
                 <div>
-                  <div class="bar" style="--w:96%"><s></s><em>Owner · Admin · Member · Viewer</em></div>
+                  <div class="bar" style="--w:96%"><s></s><em>96%</em></div>
                 </div>
               </div>
               <div class="m" data-v="92">
-                <div class="ml"><b class="holo">100%</b><span>migration &amp; schema safety</span></div>
+                <div class="ml"><b class="holo">100%</b><span>schema safety · Alembic + Django ORM + Docker</span></div>
                 <div>
-                  <div class="bar" style="--w:92%"><s></s><em>Alembic + Django ORM + Docker</em></div>
+                  <div class="bar" style="--w:92%"><s></s><em>92%</em></div>
                 </div>
               </div>
             </div>
@@ -919,6 +929,6 @@
   </footer>
 
   <!-- Application Module Script -->
-  <script type="module" src="js/app.js?v=3.0"></script>
+  <script type="module" src="js/app.js?v=3.1"></script>
 </body>
 </html>
