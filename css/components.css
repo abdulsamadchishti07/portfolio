@@ -96,15 +96,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: calc(84px + min(60vw, 310px));
+    padding-top: 270px;
   }
   .hero-film .intro {
     position: relative;
     left: auto;
     right: auto;
     bottom: auto;
-    margin: 0 28px;
-    padding-bottom: clamp(72px, 10vh, 110px);
+    margin: 0 24px;
+    padding-bottom: 78px;
   }
 }
 
@@ -1526,3 +1526,66 @@ dialog#case-study-modal::backdrop {
 .footer .links a:hover {
   color: var(--text-primary);
 }
+
+/* ==========================================================================
+   Mobile Viewport Overrides (< 560px)
+   ========================================================================== */
+@media (max-width: 560px) {
+  .hero-film .intro {
+    margin: 0 18px;
+    padding-bottom: 72px;
+  }
+  .kicker {
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    gap: 6px 8px;
+  }
+  .pipeline-pill {
+    font-size: 10px;
+    padding: 2px 8px;
+    gap: 5px;
+  }
+  .hero-film h1 {
+    font-size: clamp(1.85rem, 8.2vw, 2.35rem);
+  }
+  .cta {
+    gap: 12px;
+  }
+  #motion {
+    right: 18px;
+    bottom: 16px;
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  .rv-out {
+    padding: 18px 16px;
+  }
+  .rv-list button {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 2px 8px;
+  }
+  .rv-list .s,
+  .rv-list .t {
+    grid-column: 2;
+  }
+  .rv-det dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .ml {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .skill-item-row,
+  .email-copy-box,
+  .cmd-connect {
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  .modal-header,
+  .modal-body {
+    padding: 1.15rem 1.2rem;
+  }
+}
+
