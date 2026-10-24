@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdul Samad Chishti — Backend Developer Portfolio</title>
-  <meta name="description" content="Official portfolio of Abdul Samad Chishti — Aspiring Backend Developer & IT Student. Explore backend engineering projects, APIs, and architecture built with Python, Django, FastAPI, PostgreSQL, and Redis.">
+  <title>Abdul Samad Chishti</title>
+  <meta name="description" content="Official portfolio of Abdul Samad Chishti — Backend Developer engineering concurrent APIs, transactional booking systems, and multi-tenant architectures with Python, FastAPI, Django, PostgreSQL, and Redis.">
   <meta name="keywords" content="Abdul Samad Chishti, Abdul Samad Chishti Portfolio, Samad Chishti, Backend Developer, Python Developer, Django Developer, FastAPI, PostgreSQL, Software Engineer, Portfolio">
   <meta name="author" content="Abdul Samad Chishti">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -19,8 +19,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://abdulsamadchishti.dev/">
-  <meta property="og:title" content="Abdul Samad Chishti — Backend Developer Portfolio">
-  <meta property="og:description" content="Official portfolio of Abdul Samad Chishti — Aspiring Backend Developer & IT Student. Explore backend systems, APIs, and database architecture built with Python, Django, FastAPI, and PostgreSQL.">
+  <meta property="og:title" content="Abdul Samad Chishti — Backend Engineer Portfolio">
+  <meta property="og:description" content="Backend systems. Built not to break. Explore concurrent APIs, Redis locks, and PostgreSQL architectures built by Abdul Samad Chishti.">
   <meta property="og:image" content="https://abdulsamadchishti.dev/assets/images/og-banner.jpg">
   <meta property="og:image:secure_url" content="https://abdulsamadchishti.dev/assets/images/og-banner.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -33,34 +33,22 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@Samad187588">
-  <meta name="twitter:title" content="Abdul Samad Chishti — Backend Developer Portfolio">
-  <meta name="twitter:description" content="Official portfolio of Abdul Samad Chishti — Aspiring Backend Developer & IT Student. Built with Python, Django, FastAPI, PostgreSQL, and Redis.">
+  <meta name="twitter:title" content="Abdul Samad Chishti — Backend Engineer Portfolio">
+  <meta name="twitter:description" content="Backend systems. Built not to break. Python, FastAPI, Django, PostgreSQL, and Redis.">
   <meta name="twitter:url" content="https://abdulsamadchishti.dev/">
   <meta name="twitter:image" content="https://abdulsamadchishti.dev/assets/images/og-banner.jpg">
   <meta name="twitter:image:alt" content="Abdul Samad Chishti — Backend Developer Portfolio Banner">
 
-  <!-- Anti-Flash Theme Script (Executes synchronously before paint to prevent FOUC) -->
-  <script>
-    (function() {
-      try {
-        const storedTheme = localStorage.getItem('samad_portfolio_theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {}
-    })();
-  </script>
-
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css?v=1.1">
-  <link rel="stylesheet" href="css/components.css?v=1.1">
+  <link rel="stylesheet" href="css/tokens.css?v=3.0">
+  <link rel="stylesheet" href="css/base.css?v=3.0">
+  <link rel="stylesheet" href="css/layout.css?v=3.0">
+  <link rel="stylesheet" href="css/components.css?v=3.0">
 
   <!-- Structured Data (JSON-LD) for Search Engines -->
   <script type="application/ld+json">
@@ -69,15 +57,15 @@
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       "dateCreated": "2026-09-17",
-      "dateModified": "2026-09-19",
+      "dateModified": "2026-10-24",
       "mainEntity": {
         "@type": "Person",
         "name": "Abdul Samad Chishti",
         "alternateName": ["Samad Chishti", "Abdul Samad"],
         "url": "https://abdulsamadchishti.dev",
         "image": "https://abdulsamadchishti.dev/assets/icons/favicon.svg",
-        "jobTitle": "Aspiring Backend Developer",
-        "description": "Aspiring Backend Developer and IT student specializing in Python, Django, FastAPI, PostgreSQL, and Redis.",
+        "jobTitle": "Backend Developer",
+        "description": "Backend Developer specializing in Python, FastAPI, Django, PostgreSQL, and Redis.",
         "alumniOf": {
           "@type": "CollegeOrUniversity",
           "name": "The Islamia University of Bahawalpur"
@@ -108,7 +96,7 @@
       "@type": "WebSite",
       "name": "Abdul Samad Chishti Portfolio",
       "url": "https://abdulsamadchishti.dev",
-      "description": "Personal portfolio and backend projects showcase of Abdul Samad Chishti",
+      "description": "Personal portfolio and backend architecture showcase of Abdul Samad Chishti",
       "author": {
         "@type": "Person",
         "name": "Abdul Samad Chishti"
@@ -132,40 +120,37 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Floating Navigation Dock -->
+  <!-- Floating Pill Navigation + Detached Sun Button -->
   <header class="nav-dock-container" role="banner">
-    <nav class="nav-dock" aria-label="Main Navigation">
-      <a href="#about" class="nav-brand" aria-label="Abdul Samad Chishti Home">
-        <span class="nav-brand-initials">AS</span>
-        <span>Samad</span>
-      </a>
+    <div class="nav-pill-wrap">
+      <nav class="nav-dock" aria-label="Main Navigation">
+        <a href="#about" class="nav-brand" aria-label="Abdul Samad Chishti Home">
+          <span>samad</span><span class="cur" aria-hidden="true"></span>
+        </a>
 
-      <div class="nav-links">
-        <a href="#about" class="nav-link active">About</a>
-        <a href="#work" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
+        <div class="nav-links">
+          <a href="#architecture" class="nav-link">Code &amp; Arch</a>
+          <a href="#work" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Stack</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" class="nav-link holo-link">Resume</a>
+          <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="nav-link gh-pill">GitHub</a>
+        </div>
 
-      <div class="nav-divider" aria-hidden="true"></div>
-
-      <div class="nav-actions">
-        <!-- Theme Toggle Button with designated Icon Slot -->
-        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Switch Theme" title="Toggle Light/Dark Theme">
-          <div class="icon-slot icon-sm">
-            <img src="assets/icons/moon.svg">
-          </div>
-        </button>
-
-        <!-- Menu Toggle (3-bar button) -->
         <button id="mobile-menu-btn" class="btn-mobile-menu" aria-label="Open navigation menu" title="Open Navigation Menu">
-          <div class="icon-slot icon-sm">
-            <img src="assets/icons/menu.svg" alt="Menu" onerror="this.parentElement.textContent='☰';">
-          </div>
+          <span>☰</span>
         </button>
-      </div>
-    </nav>
+      </nav>
+
+      <!-- Detached Sun Button (Triggers Ponytail-style Light Mode Refusal Cameo) -->
+      <button id="theme-toggle-btn" class="btn-sun-cameo" type="button" aria-label="Light mode" title="Try switching to Light Mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <!-- Mobile Drawer -->
@@ -173,29 +158,22 @@
     <div class="mobile-nav-panel">
       <div class="mobile-nav-header">
         <div class="nav-brand">
-          <span class="nav-brand-initials">AS</span>
-          <span>Abdul Samad</span>
+          <span>samad</span><span class="cur" aria-hidden="true"></span>
         </div>
-        <button id="mobile-close-btn" class="modal-close-btn" aria-label="Close menu">
-          <div class="icon-slot icon-sm">
-            <img src="assets/icons/close.svg" alt="Close menu" onerror="this.parentElement.textContent='✕';">
-          </div>
-        </button>
+        <button id="mobile-close-btn" class="modal-close-btn" aria-label="Close menu">✕</button>
       </div>
       <nav class="mobile-nav-links">
-        <a href="#about" class="mobile-nav-link">About</a>
-        <a href="#work" class="mobile-nav-link">Projects & Active Work</a>
-        <a href="#skills" class="mobile-nav-link">Skills & Stack</a>
-        <a href="#experience" class="mobile-nav-link">Experience & Education</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#about" class="mobile-nav-link">Top</a>
+        <a href="#architecture" class="mobile-nav-link">01 · Code &amp; Architecture</a>
+        <a href="#work" class="mobile-nav-link">02 · Projects</a>
+        <a href="#skills" class="mobile-nav-link">03 · Stack &amp; Ladder</a>
+        <a href="#experience" class="mobile-nav-link">04 · Experience</a>
+        <a href="#contact" class="mobile-nav-link">05 · Contact</a>
       </nav>
 
       <div class="mobile-drawer-footer">
         <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" id="btn-download-resume" class="btn-mobile-resume" aria-label="Download Abdul Samad Resume">
-          <div class="icon-slot icon-sm">
-            <img src="assets/icons/download.svg" alt="Download" onerror="this.parentElement.textContent='↓';">
-          </div>
-          <span>Download CV / Resume</span>
+          <span>Download Resume (PDF) ↓</span>
         </a>
       </div>
     </div>
@@ -203,412 +181,544 @@
 
   <!-- Main Content -->
   <main id="main-content">
-    <!-- Hero Section -->
-    <section id="about" class="section hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hero-badge-row">
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            <span>Open for Junior Roles, Internships & Collaboration</span>
-          </div>
-          <div class="hero-location-pill">
-            <div class="icon-slot icon-sm icon-slot-pill">
-              <img src="assets/icons/linux.svg" alt="Linux" onerror="this.parentElement.textContent='🐧';">
-            </div>
-            <span id="local-time-display"></span>
-          </div>
+    <!-- Full-Viewport Code Field Hero (ponytail.dev style) -->
+    <section id="about" class="hero-film" aria-labelledby="hero-heading">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="intro">
+        <div class="kicker">
+          <span class="status-dot"></span>
+          <span>ABDUL SAMAD CHISHTI</span>
+          <span>·</span>
+          <span class="holo">PYTHON / FASTAPI / DJANGO</span>
+          <span>·</span>
+          <button id="pipeline-toggle-btn" class="pipeline-pill" type="button" aria-label="Switch active architecture pipeline" title="Click to switch live architecture pipeline">
+            <span id="pipeline-label">Pipeline: Concurrency Lock</span>
+            <i aria-hidden="true">↻</i>
+          </button>
+          <span>·</span>
+          <span id="local-time-display"></span>
         </div>
 
-        <h1 id="hero-heading" class="hero-title">
-          Learning & Building <span class="hero-highlight-warm">Modern Backends</span> with <span class="hero-highlight-sage">Python</span>.
+        <h1 id="hero-heading" class="decode">
+          Backend systems.<br>
+          <em>Built not to break.</em>
         </h1>
 
-        <p class="hero-bio">
-          Hi, I'm <strong>Abdul Samad Chishti</strong>, I am a student of <strong>Information Technology</strong> and a passionate Backend Developer.
+        <p class="hero-sub">
+          I'm <strong>Abdul Samad Chishti</strong> — a Backend Engineer building race-condition-free booking engines, multi-tenant REST APIs, Redis distributed locks, and relational PostgreSQL schemas that hold under real load.
         </p>
 
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">
-            <span>View My Projects</span>
-            <div class="icon-slot icon-sm icon-slot-primary-btn">
-              <img src="assets/icons/arrow-up-right.svg" alt="Arrow icon" onerror="this.parentElement.textContent='↓';">
+        <div class="cta">
+          <a class="pill" href="#architecture">Inspect my code ↓</a>
+          <a class="textlink" href="#work">Case studies ↓</a>
+          <a class="textlink" href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf">Download <span class="holo">resume.pdf</span> ↗</a>
+        </div>
+      </div>
+
+      <button id="motion" type="button" aria-pressed="false">
+        <i>❚❚</i><span>Pause motion</span>
+      </button>
+    </section>
+
+    <!-- 01 Interactive Code & Architecture Walkthrough -->
+    <section id="architecture" class="sec" aria-labelledby="arch-heading">
+      <div class="wrap">
+        <div class="in">
+          <div class="sh"><span class="no holo">01</span>Architecture</div>
+          <div>
+            <h2 id="arch-heading" class="decode">Don't just read claims.<br><em>Trace the real code.</em></h2>
+            <p class="lead">
+              Every project below solves concrete backend problems: concurrent seat double-booking, cross-tenant data leaks, brute-force auth lockouts, and N+1 query bottlenecks. Pick a system and click any engineering decision to light up the exact lines of Python code:
+            </p>
+
+            <div class="switch rvt" role="tablist" aria-label="Select Repository to Inspect">
+              <button role="tab" aria-selected="true" data-k="booking">Event Booking &amp; Ticketing API</button>
+              <button role="tab" aria-selected="false" data-k="taskflow">TaskFlow Multi-Tenant API</button>
+              <button role="tab" aria-selected="false" data-k="ecommerce">Django E-Commerce Core</button>
             </div>
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            <span>Connect with Me</span>
-          </a>
+
+            <div class="rv" id="rv">
+              <div class="rv-code" aria-hidden="true">
+                <div class="sc"></div>
+              </div>
+              <div class="rv-out">
+                <div class="rv-cmd"><span class="p">&rsaquo; </span><span class="c"></span></div>
+                <p class="rv-sum"></p>
+                <ol class="rv-list"></ol>
+                <div class="rv-det" aria-live="polite"></div>
+                <div class="rv-actions">
+                  <a id="rv-github-link" href="https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                    <span>View Repo on GitHub ↗</span>
+                  </a>
+                  <button id="rv-modal-btn" type="button" class="btn-project-cta" data-project-id="event-booking-ticketing-api">
+                    <span>Full Architecture Diagram ↗</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Work Showcase Section -->
-    <section id="work" class="section" aria-labelledby="work-heading">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Projects & Practice</span>
-          <h2 id="work-heading" class="section-title">Backend Projects & Case Studies</h2>
-          <p class="section-desc">
-            A look into the backend systems I'm building as I learn: exploring API contracts, race condition safeguards, relational database schemas, and background queues.
-          </p>
-        </header>
+    <!-- 02 Projects & Code-Strip Metrics -->
+    <section id="work" class="sec" aria-labelledby="work-heading">
+      <div class="wrap">
+        <div class="in">
+          <div class="sh"><span class="no holo">02</span>Projects</div>
+          <div>
+            <h2 id="work-heading" class="decode">Three production-grade patterns.<br><em>Zero toy CRUD.</em></h2>
+            <p class="lead">
+              Every bar below is drawn from real source code in my repositories — measuring architectural guarantees across concurrency, access control, and containerization.
+            </p>
 
-        <!-- Category Filters -->
-        <div class="project-filters" role="group" aria-label="Filter projects by category">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="fastapi">FastAPI</button>
-          <button class="filter-btn" data-filter="django">Django</button>
-        </div>
-
-        <!-- Projects Grid (Pre-rendered for Instant SEO & Web Crawlers) -->
-        <div id="projects-grid" class="projects-grid">
-          <!-- Project 1: Event Booking & Ticketing API -->
-          <article class="project-card" data-category="fastapi">
-            <div class="project-card-top">
-              <div class="project-card-header">
-                <span class="project-category-badge">In Development 🚀</span>
+            <!-- Code-Strip Bars (Ponytail Benchmark style) -->
+            <div class="chart" id="chart">
+              <div class="m" data-v="100">
+                <div class="ml"><b class="holo">0 race</b><span>oversold seats under concurrency</span></div>
+                <div>
+                  <div class="bar" style="--w:100%"><s></s><em>Redis Lock + SELECT FOR UPDATE</em></div>
+                </div>
               </div>
-              <h3 class="project-title">Event Booking &amp; Ticketing API</h3>
-              <p class="project-desc">Users can browse events, reserve seats/tickets, and pay. Admins can create events with limited seat capacity.</p>
-            </div>
-
-            <div class="project-impact-box terracotta">
-              <span class="project-impact-text">⚡ In Active Development • Concurrency &amp; Race Condition Prevention</span>
-            </div>
-
-            <div class="project-tech-tags">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Alembic</span>
-              <span class="tech-tag">Redis</span>
-            </div>
-
-            <div class="project-card-footer">
-              <button class="btn-project-cta" data-project-id="event-booking-ticketing-api" aria-label="Explore architecture of Event Booking &amp; Ticketing API">
-                <span>Architecture &amp; Details</span>
-                <div class="icon-slot icon-sm">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+              <div class="m" data-v="96">
+                <div class="ml"><b class="holo">4-tier</b><span>workspace RBAC isolation</span></div>
+                <div>
+                  <div class="bar" style="--w:96%"><s></s><em>Owner · Admin · Member · Viewer</em></div>
                 </div>
-              </button>
-
-              <a href="https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Event Booking &amp; Ticketing API on GitHub" title="View Source on GitHub">
-                <div class="icon-slot icon-sm icon-slot-pill">
-                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
-                </div>
-                <span>GitHub</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 2: Ecommerce (Practice Project) -->
-          <article class="project-card" data-category="django">
-            <div class="project-card-top">
-              <div class="project-card-header">
-                <span class="project-category-badge">Django Backend</span>
               </div>
-              <h3 class="project-title">Ecommerce (Practice Project)</h3>
-              <p class="project-desc">Django E-Commerce (Practice Project): Clean backend architecture with authentication, product catalog, cart, and order processing.</p>
-            </div>
-
-            <div class="project-impact-box sage">
-              <span class="project-impact-text">⚡ Django E-Commerce Practice • OTP Auth &amp; Docker Compose</span>
-            </div>
-
-            <div class="project-tech-tags">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">Git</span>
-            </div>
-
-            <div class="project-card-footer">
-              <button class="btn-project-cta" data-project-id="ecommerce-backend" aria-label="Explore architecture of Ecommerce (Practice Project)">
-                <span>Architecture &amp; Details</span>
-                <div class="icon-slot icon-sm">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+              <div class="m" data-v="92">
+                <div class="ml"><b class="holo">100%</b><span>migration &amp; schema safety</span></div>
+                <div>
+                  <div class="bar" style="--w:92%"><s></s><em>Alembic + Django ORM + Docker</em></div>
                 </div>
-              </button>
-
-              <a href="https://github.com/abdulsamadchishti07/Ecommerce" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Ecommerce (Practice Project) on GitHub" title="View Source on GitHub">
-                <div class="icon-slot icon-sm icon-slot-pill">
-                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
-                </div>
-                <span>GitHub</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 3: Project-Management-API -->
-          <article class="project-card" data-category="fastapi">
-            <div class="project-card-top">
-              <div class="project-card-header">
-                <span class="project-category-badge">FastAPI Multi-Tenant</span>
               </div>
-              <h3 class="project-title">Project-Management-API</h3>
-              <p class="project-desc">Multi-tenant task management REST API built with FastAPI, Redis caching, and Alembic.</p>
             </div>
 
-            <div class="project-impact-box amber">
-              <span class="project-impact-text">⚡ Multi-Tenant Isolation, Redis Caching &amp; Rate Limiting</span>
+            <!-- Category Filters -->
+            <div class="project-filters" role="group" aria-label="Filter projects by category">
+              <button class="filter-btn active" data-filter="all">All Systems (3)</button>
+              <button class="filter-btn" data-filter="fastapi">FastAPI (2)</button>
+              <button class="filter-btn" data-filter="django">Django (1)</button>
             </div>
 
-            <div class="project-tech-tags">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Redis</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-
-            <div class="project-card-footer">
-              <button class="btn-project-cta" data-project-id="project-management-api" aria-label="Explore architecture of Project-Management-API">
-                <span>Architecture &amp; Details</span>
-                <div class="icon-slot icon-sm">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open case study" onerror="this.parentElement.textContent='↗';">
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="projects-grid">
+              <!-- Project 1: Event Booking & Ticketing API -->
+              <article class="project-card" data-category="fastapi">
+                <div class="project-card-top">
+                  <div class="project-card-header">
+                    <span class="project-category-badge">Flagship · FastAPI + Redis</span>
+                  </div>
+                  <h3 class="project-title">Event Booking &amp; Ticketing API</h3>
+                  <p class="project-desc">High-concurrency event reservation backend. Prevents seat double-booking using Redis distributed locks and PostgreSQL row-level locking, with JWT refresh rotation and brute-force account lockout.</p>
                 </div>
-              </button>
 
-              <a href="https://github.com/abdulsamadchishti07/Project-Management-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Project-Management-API on GitHub" title="View Source on GitHub">
-                <div class="icon-slot icon-sm icon-slot-pill">
-                  <img src="assets/icons/github.svg" alt="GitHub icon" onerror="this.parentElement.textContent='GH';">
+                <div class="project-impact-box">
+                  <span class="project-impact-text">⚡ SELECT FOR UPDATE · Redis Seat Hold · Token Rotation</span>
                 </div>
-                <span>GitHub</span>
-              </a>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Alembic</span>
+                  <span class="tech-tag">Redis</span>
+                </div>
+
+                <div class="project-card-footer">
+                  <button class="btn-project-cta" data-project-id="event-booking-ticketing-api" aria-label="Explore architecture of Event Booking &amp; Ticketing API">
+                    <span>Architecture &amp; Details ↗</span>
+                  </button>
+
+                  <a href="https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Event Booking &amp; Ticketing API on GitHub">
+                    <span>GitHub ↗</span>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project 2: Project-Management-API -->
+              <article class="project-card" data-category="fastapi">
+                <div class="project-card-top">
+                  <div class="project-card-header">
+                    <span class="project-category-badge">FastAPI · Multi-Tenant SaaS</span>
+                  </div>
+                  <h3 class="project-title">TaskFlow (Project-Management-API)</h3>
+                  <p class="project-desc">Multi-tenant workspace, project, and task management REST API. Enforces strict tenant isolation, 4-role RBAC permissions, Redis caching, sliding-window rate limiting, and audit logging.</p>
+                </div>
+
+                <div class="project-impact-box amber">
+                  <span class="project-impact-text">⚡ Multi-Tenant Isolation · Redis Caching &amp; Rate Limiting</span>
+                </div>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+
+                <div class="project-card-footer">
+                  <button class="btn-project-cta" data-project-id="project-management-api" aria-label="Explore architecture of Project-Management-API">
+                    <span>Architecture &amp; Details ↗</span>
+                  </button>
+
+                  <a href="https://github.com/abdulsamadchishti07/Project-Management-API" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Project-Management-API on GitHub">
+                    <span>GitHub ↗</span>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project 3: Ecommerce -->
+              <article class="project-card" data-category="django">
+                <div class="project-card-top">
+                  <div class="project-card-header">
+                    <span class="project-category-badge">Django · Modular Backend</span>
+                  </div>
+                  <h3 class="project-title">Django E-Commerce Engine</h3>
+                  <p class="project-desc">Containerized e-commerce backend featuring OTP verification, OAuth2 social sign-in, relational product catalog, session/DB cart synchronization, and atomic checkout order workflows.</p>
+                </div>
+
+                <div class="project-impact-box sage">
+                  <span class="project-impact-text">⚡ OTP + OAuth2 Auth · Atomic Order Checkout · Docker Compose</span>
+                </div>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Django</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">Git</span>
+                </div>
+
+                <div class="project-card-footer">
+                  <button class="btn-project-cta" data-project-id="ecommerce-backend" aria-label="Explore architecture of Django E-Commerce Engine">
+                    <span>Architecture &amp; Details ↗</span>
+                  </button>
+
+                  <a href="https://github.com/abdulsamadchishti07/Ecommerce" target="_blank" rel="noopener noreferrer" class="btn-project-github" aria-label="View Ecommerce on GitHub">
+                    <span>GitHub ↗</span>
+                  </a>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills & Technical Mastery -->
-    <section id="skills" class="section" aria-labelledby="skills-heading">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Technical Foundation</span>
-          <h2 id="skills-heading" class="section-title">Skills & Learning Journey</h2>
-          <p class="section-desc">
-            The core tools, languages, and backend patterns I am actively studying and practicing in my coursework and personal projects.
-          </p>
-        </header>
+    <!-- 03 Backend Decision Ladder & Technical Stack -->
+    <section id="skills" class="sec" aria-labelledby="skills-heading">
+      <div class="wrap">
+        <div class="in">
+          <div class="sh"><span class="no holo">03</span>Stack &amp; Ladder</div>
+          <div>
+            <h2 id="skills-heading" class="decode">How a request survives<br><em>my backend stack.</em></h2>
+            <p class="lead">
+              Before writing application code, I trace the request lifecycle from edge rate-limiting down to database locks. Pick a production scenario to trace where it stops:
+            </p>
 
-        <div class="skills-grid">
-          <!-- Pillar 1: Frameworks & Language -->
-          <div class="skill-pillar-card">
-            <div class="skill-pillar-header">
-              <div class="icon-slot icon-lg">
-                <img src="assets/icons/python.svg" alt="Python" onerror="this.parentElement.textContent='PY';">
-              </div>
-              <div>
-                <h3 class="skill-pillar-title">Languages & Web Frameworks</h3>
-                <p class="pillar-subtitle">API development &amp; logic</p>
-              </div>
+            <div class="switch ex" role="tablist" aria-label="Backend Request Scenarios">
+              <button role="tab" aria-selected="false" data-ex="burst">100rps burst from one IP</button>
+              <button role="tab" aria-selected="false" data-ex="tenant">Viewer tries to delete project</button>
+              <button role="tab" aria-selected="false" data-ex="cache">Repeated dashboard read</button>
+              <button role="tab" aria-selected="true" data-ex="seat">2 users book the last ticket</button>
             </div>
 
-            <div class="skill-items-list">
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/django.svg" alt="Django" onerror="this.parentElement.textContent='DJ';">
-                  </div>
-                  <span class="skill-name">Django & Django REST Framework</span>
-                </div>
-                <span class="skill-badge">Practical Trainee Exp</span>
-              </div>
+            <ol class="list ladder">
+              <li><span class="i">01</span><span class="q">Edge Rate Limiter &amp; IP Guard</span><span class="a">pass</span></li>
+              <li><span class="i">02</span><span class="q">JWT Auth &amp; Workspace RBAC Scope</span><span class="a">pass</span></li>
+              <li><span class="i">03</span><span class="q">Redis Read-Through Cache Layer</span><span class="a">pass</span></li>
+              <li><span class="i">04</span><span class="q">Redis Distributed Lock + PostgreSQL Row Lock</span><span class="a">SELECT ... FOR UPDATE</span></li>
+              <li><span class="i">05</span><span class="q">Celery Async Worker &amp; Audit Log</span><span class="a">queued post-commit</span></li>
+            </ol>
+            <p class="sr" id="ladder-say" aria-live="polite"></p>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/fastapi.svg" alt="FastAPI" onerror="this.parentElement.textContent='⚡';">
-                  </div>
-                  <span class="skill-name">FastAPI</span>
-                </div>
-                <span class="skill-badge">Active Project</span>
-              </div>
-
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
+            <div class="skills-grid">
+              <!-- Pillar 1 -->
+              <div class="skill-pillar-card">
+                <div class="skill-pillar-header">
+                  <div class="icon-slot icon-lg">
                     <img src="assets/icons/python.svg" alt="Python" onerror="this.parentElement.textContent='PY';">
                   </div>
-                  <span class="skill-name">Python Core & OOP</span>
-                </div>
-                <span class="skill-badge">Primary Language</span>
-              </div>
-
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/rest-api.svg" alt="REST API" onerror="this.parentElement.textContent='API';">
+                  <div>
+                    <h3 class="skill-pillar-title">Languages &amp; Frameworks</h3>
+                    <p class="pillar-subtitle">Async &amp; synchronous API engines</p>
                   </div>
-                  <span class="skill-name">RESTful API Design & HTTP</span>
                 </div>
-                <span class="skill-badge">CRUD & Status Codes</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Pillar 2: Databases & Caching -->
-          <div class="skill-pillar-card">
-            <div class="skill-pillar-header">
-              <div class="icon-slot icon-lg">
-                <img src="assets/icons/postgresql.svg" alt="PostgreSQL" onerror="this.parentElement.textContent='PG';">
-              </div>
-              <div>
-                <h3 class="skill-pillar-title">Databases & Data Storage</h3>
-                <p class="pillar-subtitle">Schema design &amp; persistence</p>
-              </div>
-            </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/fastapi.svg" alt="FastAPI" onerror="this.parentElement.textContent='⚡';">
+                      </div>
+                      <span class="skill-name">FastAPI (Async REST APIs)</span>
+                    </div>
+                    <span class="skill-badge">Pydantic v2 · Depends</span>
+                  </div>
 
-            <div class="skill-items-list">
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/django.svg" alt="Django" onerror="this.parentElement.textContent='DJ';">
+                      </div>
+                      <span class="skill-name">Django &amp; Django REST Framework</span>
+                    </div>
+                    <span class="skill-badge">ORM · ViewSets · Auth</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/python.svg" alt="Python" onerror="this.parentElement.textContent='PY';">
+                      </div>
+                      <span class="skill-name">Python 3.12+ Core &amp; Typing</span>
+                    </div>
+                    <span class="skill-badge">Asyncio · OOP</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/rest-api.svg" alt="REST API" onerror="this.parentElement.textContent='API';">
+                      </div>
+                      <span class="skill-name">RESTful API Contracts &amp; OpenAPI</span>
+                    </div>
+                    <span class="skill-badge">Idempotency · HTTP</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="skill-pillar-card">
+                <div class="skill-pillar-header">
+                  <div class="icon-slot icon-lg">
                     <img src="assets/icons/postgresql.svg" alt="PostgreSQL" onerror="this.parentElement.textContent='PG';">
                   </div>
-                  <span class="skill-name">PostgreSQL</span>
-                </div>
-                <span class="skill-badge">Relational Modeling</span>
-              </div>
-
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/redis.svg" alt="Redis" onerror="this.parentElement.textContent='RD';">
+                  <div>
+                    <h3 class="skill-pillar-title">Databases &amp; Caching</h3>
+                    <p class="pillar-subtitle">ACID transactions &amp; in-memory state</p>
                   </div>
-                  <span class="skill-name">Redis (Caching & Locks)</span>
                 </div>
-                <span class="skill-badge">Key-Value & Locks</span>
-              </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='SQL';">
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/postgresql.svg" alt="PostgreSQL" onerror="this.parentElement.textContent='PG';">
+                      </div>
+                      <span class="skill-name">PostgreSQL</span>
+                    </div>
+                    <span class="skill-badge">Row Locks · Indexing</span>
                   </div>
-                  <span class="skill-name">SQL Queries & Django ORM</span>
-                </div>
-                <span class="skill-badge">Query Optimization</span>
-              </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='DB';">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/redis.svg" alt="Redis" onerror="this.parentElement.textContent='RD';">
+                      </div>
+                      <span class="skill-name">Redis</span>
+                    </div>
+                    <span class="skill-badge">Distributed Locks · TTL</span>
                   </div>
-                  <span class="skill-name">Database Migrations & Relations</span>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='SQL';">
+                      </div>
+                      <span class="skill-name">SQLAlchemy 2.0 &amp; Django ORM</span>
+                    </div>
+                    <span class="skill-badge">Query Optimization</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/database.svg" alt="Database" onerror="this.parentElement.textContent='DB';">
+                      </div>
+                      <span class="skill-name">Alembic Schema Migrations</span>
+                    </div>
+                    <span class="skill-badge">Versioned DDL</span>
+                  </div>
                 </div>
-                <span class="skill-badge">Foreign Keys & Indexes</span>
               </div>
-            </div>
-          </div>
 
-          <!-- Pillar 3: Distributed Systems -->
-          <div class="skill-pillar-card">
-            <div class="skill-pillar-header">
-              <div class="icon-slot icon-lg">
-                <img src="assets/icons/celery.svg" alt="Celery" onerror="this.parentElement.textContent='CL';">
-              </div>
-              <div>
-                <h3 class="skill-pillar-title">Background Tasks & Tools</h3>
-                <p class="pillar-subtitle">Queues &amp; asynchronous jobs</p>
-              </div>
-            </div>
-
-            <div class="skill-items-list">
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
+              <!-- Pillar 3 -->
+              <div class="skill-pillar-card">
+                <div class="skill-pillar-header">
+                  <div class="icon-slot icon-lg">
                     <img src="assets/icons/celery.svg" alt="Celery" onerror="this.parentElement.textContent='CL';">
                   </div>
-                  <span class="skill-name">Celery (Async Worker Tasks)</span>
+                  <div>
+                    <h3 class="skill-pillar-title">Queues &amp; DevOps</h3>
+                    <p class="pillar-subtitle">Background workers &amp; Linux containers</p>
+                  </div>
                 </div>
-                <span class="skill-badge">Exploring Queues</span>
+
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/celery.svg" alt="Celery" onerror="this.parentElement.textContent='CL';">
+                      </div>
+                      <span class="skill-name">Celery &amp; Background Tasks</span>
+                    </div>
+                    <span class="skill-badge">Async Workers</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/docker.svg" alt="Docker" onerror="this.parentElement.textContent='DK';">
+                      </div>
+                      <span class="skill-name">Docker &amp; Docker Compose</span>
+                    </div>
+                    <span class="skill-badge">Multi-Service Dev</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/linux.svg" alt="Linux" onerror="this.parentElement.textContent='LX';">
+                      </div>
+                      <span class="skill-name">Linux CLI &amp; Shell</span>
+                    </div>
+                    <span class="skill-badge">Daily Driver</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/git.svg" alt="Git" onerror="this.parentElement.textContent='GT';">
+                      </div>
+                      <span class="skill-name">Git, GitHub &amp; UV</span>
+                    </div>
+                    <span class="skill-badge">Version Control</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/docker.svg" alt="Docker" onerror="this.parentElement.textContent='DK';">
+              <!-- Pillar 4 -->
+              <div class="skill-pillar-card">
+                <div class="skill-pillar-header">
+                  <div class="icon-slot icon-lg">
+                    <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='SH';">
                   </div>
-                  <span class="skill-name">Docker Basics</span>
+                  <div>
+                    <h3 class="skill-pillar-title">Security &amp; Verification</h3>
+                    <p class="pillar-subtitle">Auth boundaries &amp; automated tests</p>
+                  </div>
                 </div>
-                <span class="skill-badge">Containerized Dev</span>
-              </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/linux.svg" alt="Linux" onerror="this.parentElement.textContent='LX';">
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='AU';">
+                      </div>
+                      <span class="skill-name">JWT Access / Refresh Rotation</span>
+                    </div>
+                    <span class="skill-badge">Lockout Guards</span>
                   </div>
-                  <span class="skill-name">Linux & Command Line</span>
-                </div>
-                <span class="skill-badge">Daily Environment</span>
-              </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/git.svg" alt="Git" onerror="this.parentElement.textContent='GT';">
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='RB';">
+                      </div>
+                      <span class="skill-name">Multi-Tenant RBAC</span>
+                    </div>
+                    <span class="skill-badge">Scoped Permissions</span>
                   </div>
-                  <span class="skill-name">Git & GitHub</span>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/postman.svg" alt="Postman" onerror="this.parentElement.textContent='PM';">
+                      </div>
+                      <span class="skill-name">Pytest &amp; Postman Suites</span>
+                    </div>
+                    <span class="skill-badge">Integration Tests</span>
+                  </div>
+
+                  <div class="skill-item-row">
+                    <div class="skill-item-info">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/algorithms.svg" alt="Algorithms" onerror="this.parentElement.textContent='CS';">
+                      </div>
+                      <span class="skill-name">Data Structures &amp; BS IT</span>
+                    </div>
+                    <span class="skill-badge">Islamia University</span>
+                  </div>
                 </div>
-                <span class="skill-badge">Version Control</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Pillar 4: Security & Auth -->
-          <div class="skill-pillar-card">
-            <div class="skill-pillar-header">
-              <div class="icon-slot icon-lg">
-                <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='SH';">
-              </div>
-              <div>
-                <h3 class="skill-pillar-title">Authentication & Core Concepts</h3>
-                <p class="pillar-subtitle">Security &amp; best practices</p>
-              </div>
-            </div>
+    <!-- 04 Experience -->
+    <section id="experience" class="sec" aria-labelledby="experience-heading">
+      <div class="wrap">
+        <div class="in">
+          <div class="sh"><span class="no holo">04</span>Experience</div>
+          <div>
+            <h2 id="experience-heading" class="decode">Shipped in teams.<br><em>Tested in production workflows.</em></h2>
+            <p class="lead">
+              Hands-on software engineering internships and backend training across FastAPI, Django, relational databases, and agile team delivery.
+            </p>
 
-            <div class="skill-items-list">
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='AU';">
-                  </div>
-                  <span class="skill-name">JWT & Token Authentication</span>
+            <div class="timeline-list">
+              <!-- Moiz Tech Hub -->
+              <div class="timeline-card">
+                <span class="timeline-period">Jul 2026 — Aug 2026 · Remote</span>
+                <h3 class="timeline-role">Software Engineer Intern — Moiz Tech Hub</h3>
+                <p class="experience-meta">FastAPI · PostgreSQL · Redis · Multi-Tenant Architecture</p>
+                <p class="timeline-summary">
+                  Engineered TaskFlow API, a multi-tenant project management REST API with FastAPI — implemented JWT authentication, workspace-scoped role-based access control (owner/admin/member/viewer), and a projects → tasks → comments relational hierarchy. Integrated Redis caching and rate limiting, background email notifications, and soft deletes with audit logging.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">JWT RBAC</span>
+                  <span class="tech-tag">Alembic</span>
                 </div>
-                <span class="skill-badge">Session & Auth</span>
               </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/shield.svg" alt="Security" onerror="this.parentElement.textContent='RB';">
-                  </div>
-                  <span class="skill-name">Role-Based Access Control</span>
+              <!-- Enigmatix -->
+              <div class="timeline-card">
+                <span class="timeline-period">Aug 2025 — Dec 2025 · Bahawalpur</span>
+                <h3 class="timeline-role">Backend Trainee — Enigmatix</h3>
+                <p class="experience-meta">Django · Python · Relational Schema Design · REST APIs</p>
+                <p class="timeline-summary">
+                  Trained in backend web engineering using Django and Python. Built and tested RESTful APIs, designed normalized relational database schemas, handled HTTP request/response lifecycles, and collaborated using Git workflows on production-style codebases.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tech-tag">Django</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">MySQL / PostgreSQL</span>
+                  <span class="tech-tag">REST APIs</span>
                 </div>
-                <span class="skill-badge">Permission Guards</span>
               </div>
 
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/postman.svg" alt="Postman" onerror="this.parentElement.textContent='PM';">
-                  </div>
-                  <span class="skill-name">Postman & API Testing</span>
+              <!-- WebXMeta -->
+              <div class="timeline-card">
+                <span class="timeline-period">Mar 2025 — Jul 2025 · Bahawalpur</span>
+                <h3 class="timeline-role">Associate — WebXMeta</h3>
+                <p class="experience-meta">Client Scoping · Technical Communication · Agency Workflows</p>
+                <p class="timeline-summary">
+                  Collaborated across technical scoping, client communication, lead qualification, and cross-functional delivery workflows in a fast-paced IT agency environment.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tech-tag">Technical Scoping</span>
+                  <span class="tech-tag">Client Communication</span>
+                  <span class="tech-tag">Cross-Functional Workflows</span>
                 </div>
-                <span class="skill-badge">Endpoint Validation</span>
-              </div>
-
-              <div class="skill-item-row">
-                <div class="skill-item-info">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/algorithms.svg" alt="Algorithms" onerror="this.parentElement.textContent='CS';">
-                  </div>
-                  <span class="skill-name">Data Structures & CS Foundations</span>
-                </div>
-                <span class="skill-badge">University Curriculum</span>
               </div>
             </div>
           </div>
@@ -616,247 +726,153 @@
       </div>
     </section>
 
-    <!-- Career Experience & Education Timeline -->
-    <section id="experience" class="section" aria-labelledby="experience-heading">
-      <div class="container container-narrow">
-        <header class="section-header text-center">
-          <span class="section-eyebrow">Experience</span>
-          <h2 id="experience-heading" class="section-title">Work Experience</h2>
-          <p class="section-desc">
-            Hands-on professional experience in backend web development and collaborative team workflows.
-          </p>
-        </header>
-
-        <div class="timeline-list">
-          <!-- Moiz Tech Hub Software Engineer Intern -->
-          <div class="timeline-card">
-            <span class="timeline-period">Jul 2026 — Aug 2026 (2 mos)</span>
-            <h3 class="timeline-role">Software Engineer Intern — Moiz Tech Hub</h3>
-            <p class="experience-meta">Internship · Remote · Pakistan</p>
-            <p class="timeline-summary">
-              Built TaskFlow API, a multi-tenant task/project management REST API with FastAPI — implemented JWT authentication, workspace-scoped role-based access control (owner/admin/member/viewer), and a projects → tasks → comments hierarchy. Added Redis caching and rate limiting, background email notifications, and soft deletes with audit logging.
+    <!-- 05 Contact & Terminal -->
+    <section id="contact" class="sec" aria-labelledby="contact-heading">
+      <div class="wrap">
+        <div class="in">
+          <div class="sh"><span class="no holo">05</span>Connect</div>
+          <div>
+            <h2 id="contact-heading" class="decode">One command.<br><em>Let's build together.</em></h2>
+            <p class="lead">
+              Open for Backend Engineer roles, junior/associate opportunities, internships, and technical collaborations.
             </p>
-            <div class="timeline-tags">
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Redis</span>
-              <span class="tech-tag">JWT</span>
+
+            <!-- Self-Typing Terminal Banner -->
+            <div class="cmd-connect">
+              <pre id="contact-cmd-pre"><span class="p">$ </span>curl -s https://abdulsamadchishti.dev/status.json
+{"developer": "Abdul Samad Chishti", "status": "open_to_work", "stack": ["Python", "FastAPI", "Django", "PostgreSQL", "Redis"]}</pre>
             </div>
-          </div>
 
-          <!-- Enigmatix Trainee -->
-          <div class="timeline-card">
-            <span class="timeline-period">Aug 2025 — Dec 2025 (5 mos)</span>
-            <h3 class="timeline-role">Backend Trainee — Enigmatix</h3>
-            <p class="experience-meta">Part-time · On-site · Bahawalpur, Punjab, Pakistan</p>
-            <p class="timeline-summary">
-              Trained in backend web development using Django and Python. Gained practical experience in building and testing REST APIs, database modeling, handling HTTP request lifecycles, and working collaboratively on production codebases.
-            </p>
-            <div class="timeline-tags">
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">REST APIs</span>
-            </div>
-          </div>
-
-          <!-- WebXMeta Employee -->
-          <div class="timeline-card">
-            <span class="timeline-period">Mar 2025 — Jul 2025 (5 mos)</span>
-            <h3 class="timeline-role">Employee — WebXMeta</h3>
-            <p class="experience-meta">Full-time · On-site · Bahawalpur, Punjab, Pakistan</p>
-            <p class="timeline-summary">
-              Gained professional experience in business development, lead generation, client communication, and cross-functional team workflows in an IT agency environment.
-            </p>
-            <div class="timeline-tags">
-              <span class="tech-tag">Business Development</span>
-              <span class="tech-tag">Lead Generation</span>
-              <span class="tech-tag">Client Relations</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Deck -->
-    <section id="contact" class="section" aria-labelledby="contact-heading">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-eyebrow">Connect & Collaborate</span>
-          <h2 id="contact-heading" class="section-title">Let's Connect & Learn Together</h2>
-          <p class="section-desc">
-            Open for junior backend opportunities, internships, student collaborations, and open-source contributions.
-          </p>
-        </header>
-
-        <div class="contact-grid">
-          <!-- Left: Direct Social Cards & 1-Click Copy -->
-          <div class="contact-card">
-            <div>
-              <h3 class="card-title-lg">Direct Channels</h3>
-              <p class="card-desc-muted">
-                Feel free to reach out to connect, chat about backend engineering, or discuss opportunities!
-              </p>
-
-              <!-- 1-Click Email Copy Box -->
-              <div class="email-copy-box">
+            <div class="contact-grid">
+              <!-- Left: Direct Channels -->
+              <div class="contact-card">
                 <div>
-                  <span class="contact-label-sub">Direct Email</span>
-                  <span class="email-address-text">abdulsamadchishti07@gmail.com</span>
-                </div>
-                <button id="btn-copy-email" class="btn-copy-email" aria-label="Copy email address to clipboard">
-                  <div class="icon-slot icon-sm icon-slot-plain">
-                    <img src="assets/icons/copy.svg" alt="Copy icon" onerror="this.parentElement.textContent='📋';">
+                  <h3 class="card-title-lg">Direct Endpoints</h3>
+                  <p class="card-desc-muted">
+                    Copy my email in one click or reach out directly on GitHub, LinkedIn, or X.
+                  </p>
+
+                  <div class="email-copy-box">
+                    <div>
+                      <span class="contact-label-sub">SSH / Mailto</span>
+                      <span class="email-address-text">abdulsamadchishti07@gmail.com</span>
+                    </div>
+                    <button id="btn-copy-email" class="btn-copy-email" aria-label="Copy email address to clipboard">
+                      <span class="btn-copy-text">copy</span>
+                    </button>
                   </div>
-                  <span class="btn-copy-text">Copy</span>
-                </button>
+                </div>
+
+                <div class="socials-list">
+                  <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <div class="social-pill-left">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/github.svg" alt="GitHub" onerror="this.parentElement.textContent='GH';">
+                      </div>
+                      <div>
+                        <span class="social-name">GitHub</span>
+                        <span class="social-handle">@abdulsamadchishti07</span>
+                      </div>
+                    </div>
+                    <span>↗</span>
+                  </a>
+
+                  <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <div class="social-pill-left">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/linkedin.svg" alt="LinkedIn" onerror="this.parentElement.textContent='in';">
+                      </div>
+                      <div>
+                        <span class="social-name">LinkedIn</span>
+                        <span class="social-handle">/in/abdulsamadchishti07</span>
+                      </div>
+                    </div>
+                    <span>↗</span>
+                  </a>
+
+                  <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <div class="social-pill-left">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/x.svg" alt="X (Twitter)" onerror="this.parentElement.textContent='𝕏';">
+                      </div>
+                      <div>
+                        <span class="social-name">X (Twitter)</span>
+                        <span class="social-handle">@Samad187588</span>
+                      </div>
+                    </div>
+                    <span>↗</span>
+                  </a>
+
+                  <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <div class="social-pill-left">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/discord.svg" alt="Discord" onerror="this.parentElement.textContent='DC';">
+                      </div>
+                      <div>
+                        <span class="social-name">Discord</span>
+                        <span class="social-handle">discord.gg/mo3xey</span>
+                      </div>
+                    </div>
+                    <span>↗</span>
+                  </a>
+
+                  <a href="mailto:abdulsamadchishti07@gmail.com" class="social-pill">
+                    <div class="social-pill-left">
+                      <div class="icon-slot icon-sm">
+                        <img src="assets/icons/email.svg" alt="Email" onerror="this.parentElement.textContent='✉';">
+                      </div>
+                      <div>
+                        <span class="social-name">Email Directly</span>
+                        <span class="social-handle">abdulsamadchishti07@gmail.com</span>
+                      </div>
+                    </div>
+                    <span>↗</span>
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <!-- Social Badges with Icon Slots -->
-            <div class="socials-list">
-              <!-- GitHub Profile -->
-              <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/github.svg" alt="GitHub" onerror="this.parentElement.textContent='GH';">
-                  </div>
-                  <div>
-                    <span class="social-name">GitHub</span>
-                    <span class="social-handle social-handle-block">@abdulsamadchishti07</span>
-                  </div>
-                </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
+              <!-- Right: Interactive Contact Form -->
+              <div class="contact-card">
+                <div>
+                  <h3 class="card-title-lg">POST /messages</h3>
+                  <p class="card-desc-muted">
+                    Send a direct payload to my inbox — hiring inquiries, backend roles, or project feedback.
+                  </p>
 
-              <!-- LinkedIn -->
-              <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/linkedin.svg" alt="LinkedIn" onerror="this.parentElement.textContent='in';">
-                  </div>
-                  <div>
-                    <span class="social-name">LinkedIn</span>
-                    <span class="social-handle social-handle-block">/in/abdulsamadchishti07</span>
-                  </div>
-                </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
+                  <form id="contact-form" class="contact-form" novalidate>
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_captcha" value="false">
 
-              <!-- X / Twitter -->
-              <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/x.svg" alt="X (Twitter)" onerror="this.parentElement.textContent='𝕏';">
-                  </div>
-                  <div>
-                    <span class="social-name">X (Twitter)</span>
-                    <span class="social-handle social-handle-block">@Samad187588</span>
-                  </div>
-                </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
+                    <div class="form-group">
+                      <label for="contact-name" class="form-label">Name / Organization</label>
+                      <input type="text" id="contact-name" name="name" class="form-input" placeholder="Recruiter or Engineer Name" required minlength="2">
+                      <span class="form-error-msg">Please enter your name.</span>
+                    </div>
 
-              <!-- Discord -->
-              <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/discord.svg" alt="Discord" onerror="this.parentElement.textContent='DC';">
-                  </div>
-                  <div>
-                    <span class="social-name">Discord</span>
-                    <span class="social-handle social-handle-block">Join community / server</span>
-                  </div>
-                </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
+                    <div class="form-group">
+                      <label for="contact-email" class="form-label">Return Email</label>
+                      <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@company.com" required autocomplete="email">
+                      <span class="form-error-msg">Please enter a valid email address.</span>
+                    </div>
 
-              <!-- Instagram -->
-              <a href="https://instagram.com/abdulsamadchishti" target="_blank" rel="noopener noreferrer" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/instagram.svg" alt="Instagram" onerror="this.parentElement.textContent='IG';">
-                  </div>
-                  <div>
-                    <span class="social-name">Instagram</span>
-                    <span class="social-handle social-handle-block">@abdulsamadchishti</span>
-                  </div>
-                </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
+                    <div class="form-group">
+                      <label for="contact-subject" class="form-label">Subject / Role</label>
+                      <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="Backend Engineer Role / Collaboration" required>
+                      <span class="form-error-msg">Please provide a subject.</span>
+                    </div>
 
-              <!-- Gmail Direct -->
-              <a href="mailto:abdulsamadchishti07@gmail.com" class="social-pill">
-                <div class="social-pill-left">
-                  <div class="icon-slot icon-sm">
-                    <img src="assets/icons/email.svg" alt="Email" onerror="this.parentElement.textContent='✉';">
-                  </div>
-                  <div>
-                    <span class="social-name">Email Directly</span>
-                    <span class="social-handle social-handle-block">abdulsamadchishti07@gmail.com</span>
-                  </div>
+                    <div class="form-group">
+                      <label for="contact-message" class="form-label">Payload</label>
+                      <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell me about the team, role, or backend problem..." required minlength="10"></textarea>
+                      <span class="form-error-msg">Message must be at least 10 characters.</span>
+                    </div>
+
+                    <button type="submit" class="pill btn-form-submit">
+                      <span>Send Message →</span>
+                    </button>
+                  </form>
                 </div>
-                <div class="icon-slot icon-sm icon-slot-plain">
-                  <img src="assets/icons/arrow-up-right.svg" alt="Open link" onerror="this.parentElement.textContent='↗';">
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Accessible Interactive Contact Form -->
-          <div class="contact-card">
-            <div>
-              <h3 class="card-title-lg">Send a Message</h3>
-              <p class="card-desc-muted">
-                Have a question, feedback on my projects, or an internship opportunity? Leave a note below.
-              </p>
-
-              <form id="contact-form" class="contact-form" novalidate>
-                <!-- Honeypot anti-spam trap (invisible to users, filled by bots) -->
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                <input type="hidden" name="_captcha" value="false">
-
-                <div class="form-group">
-                  <label for="contact-name" class="form-label">Your Name</label>
-                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your Name or Company" required minlength="2">
-                  <span class="form-error-msg">Please enter your name.</span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact-email" class="form-label">Email Address</label>
-                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
-                  <span class="form-error-msg">Please enter a valid email address.</span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact-subject" class="form-label">Subject / Scope</label>
-                  <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="Junior Role / Internship / Project Feedback" required>
-                  <span class="form-error-msg">Please provide a subject.</span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact-message" class="form-label">Message</label>
-                  <textarea id="contact-message" name="message" class="form-textarea" placeholder="Write your message here..." required minlength="10"></textarea>
-                  <span class="form-error-msg">Message must be at least 10 characters.</span>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-form-submit">
-                  <span>Send Message</span>
-                  <div class="icon-slot icon-sm icon-slot-primary-btn">
-                    <img src="assets/icons/arrow-up-right.svg" alt="Send" onerror="this.parentElement.textContent='→';">
-                  </div>
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -870,61 +886,39 @@
       <header class="modal-header">
         <div>
           <span id="modal-badge" class="project-category-badge">Category</span>
-          <h3 id="modal-title" class="project-title modal-title-custom">Project Case Study</h3>
+          <h3 id="modal-title" class="project-title">Project Case Study</h3>
         </div>
-        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">
-          <div class="icon-slot icon-sm icon-slot-plain">
-            <img src="assets/icons/close.svg" alt="Close" onerror="this.parentElement.textContent='✕';">
-          </div>
-        </button>
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Case Study">✕</button>
       </header>
 
-      <div id="modal-body" class="modal-body">
-        <!-- Content injected dynamically by js/modules/projects.js -->
-      </div>
+      <div id="modal-body" class="modal-body"></div>
     </div>
   </dialog>
 
   <!-- Floating Toast Feedback -->
   <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true">
-    <div class="icon-slot icon-sm icon-slot-success">
-      <img src="assets/icons/check.svg" alt="Checkmark" onerror="this.parentElement.textContent='✓';">
-    </div>
+    <span class="holo">✓</span>
     <span class="toast-message">Notification message</span>
   </div>
 
-  <!-- Footer -->
+  <!-- Ponytail-inspired Minimalist Footer -->
   <footer class="footer" role="contentinfo">
-    <div class="container footer-content">
-      <div class="footer-credits">
-        <p>&copy; <span id="current-year">2026</span> <strong>Abdul Samad Chishti</strong> • <a href="https://abdulsamadchishti.dev/" class="footer-domain-link">abdulsamadchishti.dev</a></p>
-        <p class="footer-location">
-          <svg class="footer-location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Bahawalpur, Punjab, Pakistan</span>
-        </p>
-      </div>
-      <div class="footer-links">
-        <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" class="footer-link footer-resume-link" aria-label="Download Abdul Samad Resume (PDF)" title="Download Resume (PDF)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Resume</span>
-        </a>
-        <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-        <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-        <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer" class="footer-link">X (Twitter)</a>
-        <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
-        <a href="https://instagram.com/abdulsamadchishti" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+    <div class="wrap">
+      <div class="mark" aria-hidden="true">samad<span class="cur"></span></div>
+      <p class="q">The best backend is the one that never pages you at 3am.</p>
+      <div class="links">
+        <a href="Abdul%20Samad%20Resume.pdf" download="Abdul Samad Resume.pdf" class="holo">Resume (PDF) ↓</a>
+        <a href="https://github.com/abdulsamadchishti07" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/abdulsamadchishti07" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/Samad187588" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+        <a href="https://discord.gg/mo3xey" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://instagram.com/abdulsamadchishti" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span>&copy; <span id="current-year">2026</span> Abdul Samad Chishti · Bahawalpur, PK</span>
       </div>
     </div>
   </footer>
 
   <!-- Application Module Script -->
-  <script type="module" src="js/app.js?v=2.0"></script>
+  <script type="module" src="js/app.js?v=3.0"></script>
 </body>
 </html>
