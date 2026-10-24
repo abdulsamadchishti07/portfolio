@@ -277,7 +277,7 @@
               <span class="eq-col"></span>
             </div>
             <div class="ambient-track-info">
-              <div id="ambient-now-title" class="ambient-now-title">Aruarian Dance</div>
+              <div id="ambient-now-title" class="ambient-now-title">Affection</div>
               <div id="ambient-now-status" class="ambient-now-status">Paused · Opt-in</div>
             </div>
             <button id="ambient-play-toggle" class="ambient-play-btn" type="button" aria-label="Play Lo-Fi audio">
@@ -287,47 +287,56 @@
 
           <!-- Track Selection List -->
           <div class="ambient-track-list" role="radiogroup" aria-label="Select ambient track">
-            <button class="ambient-track-item is-active" type="button" role="radio" aria-checked="true" data-track-index="0">
+            <button class="ambient-track-item is-active" type="button" role="radio" aria-checked="true" data-track-index="0" tabindex="0">
               <span class="track-num">01</span>
               <div class="track-meta">
-                <span class="track-name">Aruarian Dance</span>
-                <span class="track-genre">Nujabes · Lo-Fi Classic</span>
+                <span class="track-name">Affection</span>
+                <span class="track-genre">Jinsang · Lo-Fi Chill</span>
               </div>
               <span class="track-indicator" aria-hidden="true">●</span>
             </button>
 
-            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="1">
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="1" tabindex="-1">
               <span class="track-num">02</span>
               <div class="track-meta">
-                <span class="track-name">Affection</span>
-                <span class="track-genre">Jinsang · Lo-Fi Beats</span>
+                <span class="track-name">Hideaway</span>
+                <span class="track-genre">Chillhop · Warm Rhodes</span>
               </div>
               <span class="track-indicator" aria-hidden="true">●</span>
             </button>
 
-            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="2">
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="2" tabindex="-1">
               <span class="track-num">03</span>
               <div class="track-meta">
                 <span class="track-name">Monday Loop</span>
-                <span class="track-genre">Tomppabeats · Chill Vibes</span>
+                <span class="track-genre">Tomppabeats · Chillhop Vinyl</span>
               </div>
               <span class="track-indicator" aria-hidden="true">●</span>
             </button>
 
-            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="3">
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="3" tabindex="-1">
               <span class="track-num">04</span>
               <div class="track-meta">
                 <span class="track-name">Bliss</span>
-                <span class="track-genre">Lo-Fi Hip Hop Beat · Chill</span>
+                <span class="track-genre">Lo-Fi Hip Hop Beat · Relax</span>
               </div>
               <span class="track-indicator" aria-hidden="true">●</span>
             </button>
 
-            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="4">
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="4" tabindex="-1">
               <span class="track-num">05</span>
               <div class="track-meta">
-                <span class="track-name">Hideaway</span>
-                <span class="track-genre">Chill Waves · Ambient</span>
+                <span class="track-name">Aruarian Dance</span>
+                <span class="track-genre">Nujabes · Iconic Classic</span>
+              </div>
+              <span class="track-indicator" aria-hidden="true">●</span>
+            </button>
+
+            <button class="ambient-track-item" type="button" role="radio" aria-checked="false" data-track-index="5" tabindex="-1">
+              <span class="track-num">06</span>
+              <div class="track-meta">
+                <span class="track-name">Terminal Flow</span>
+                <span class="track-genre">Live Procedural Synth · Infinite Loop</span>
               </div>
               <span class="track-indicator" aria-hidden="true">●</span>
             </button>
@@ -335,7 +344,9 @@
 
           <!-- Volume Controls -->
           <div class="ambient-volume-bar">
-            <span id="ambient-vol-icon" class="vol-icon" aria-hidden="true">🔊</span>
+            <button id="ambient-vol-toggle" class="ambient-vol-btn" type="button" aria-label="Mute ambient audio">
+              <span id="ambient-vol-icon" class="vol-icon" aria-hidden="true">🔊</span>
+            </button>
             <input id="ambient-volume-slider"
                    type="range"
                    min="0"
@@ -343,7 +354,11 @@
                    value="60"
                    step="1"
                    class="ambient-slider"
-                   aria-label="Ambient volume level">
+                   aria-label="Ambient volume level"
+                   aria-valuenow="60"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   aria-valuetext="60%">
             <span id="ambient-vol-val" class="vol-value">60%</span>
           </div>
         </div>
