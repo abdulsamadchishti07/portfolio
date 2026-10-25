@@ -424,7 +424,7 @@
             <!-- Code-Strip Bars (Ponytail Benchmark style) -->
             <div class="chart" id="chart">
               <div class="m" data-v="100">
-                <div class="ml"><b class="holo">0 race</b><span>oversold seats · Redis Lock + FOR UPDATE</span></div>
+                <div class="ml"><b class="holo">0 oversold</b><span>100 simultaneous buyers on 20 seats · 212 pytest passing</span></div>
                 <div>
                   <div class="bar" style="--w:100%"><s></s><em>100%</em></div>
                 </div>
@@ -456,22 +456,24 @@
               <article class="project-card" data-category="fastapi">
                 <div class="project-card-top">
                   <div class="project-card-header">
-                    <span class="project-category-badge">Flagship · FastAPI + Redis</span>
+                    <span class="project-category-badge">Flagship · High-Concurrency API</span>
                   </div>
                   <h3 class="project-title">Event Booking &amp; Ticketing API</h3>
-                  <p class="project-desc">High-concurrency event reservation backend. Prevents seat double-booking using Redis distributed locks and PostgreSQL row-level locking, with JWT refresh rotation and brute-force account lockout.</p>
+                  <p class="project-desc">High-concurrency event reservation backend engineered to eliminate race conditions under flash-drop traffic. Benchmarked with 100 simultaneous buyers for 20 seats (exact 20 sales, 0 oversold), 3.0× linear cluster scaling to ~1,500 req/s, and Stripe webhook idempotency.</p>
                 </div>
 
                 <div class="project-impact-box">
-                  <span class="project-impact-text">⚡ SELECT FOR UPDATE · Redis Seat Hold · Token Rotation</span>
+                  <span class="project-impact-text">⚡ 0 Oversold (100 VUs) · 3.0× Scaling (~1.5k req/s) · 212 Tests Passing</span>
                 </div>
 
                 <div class="project-tech-tags">
                   <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">Alembic</span>
-                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">PostgreSQL 16</span>
+                  <span class="tech-tag">Redis 7</span>
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">Nginx</span>
+                  <span class="tech-tag">Stripe</span>
+                  <span class="tech-tag">k6</span>
                 </div>
 
                 <div class="project-card-footer">

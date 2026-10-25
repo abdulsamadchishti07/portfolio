@@ -32,7 +32,7 @@ A personal portfolio website showcasing my backend engineering projects, tech st
 - **DevOps & Tools**: Docker, Docker Compose, Linux, Git, Alembic, UV
 
 ### Pinned Projects
-1. **[Event-Booking-Ticketing-API](https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API)**: High-concurrency event reservation engine designed to prevent double-booking using Redis locks and PostgreSQL row-level locks.
+1. **[Event-Booking-Ticketing-API](https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API)**: High-concurrency event booking backend with 0 oversold seats under 100 concurrent buyers, 3.0× linear cluster scaling (~1,500 req/s), and Stripe webhook idempotency.
 2. **[Ecommerce (Practice Project)](https://github.com/abdulsamadchishti07/Ecommerce)**: Clean-architecture Django eCommerce backend with OTP authentication, cart workflows, and Docker Compose.
 3. **[Project-Management-API](https://github.com/abdulsamadchishti07/Project-Management-API)**: Multi-tenant task management REST API built with FastAPI, Redis caching, rate-limiting, and Alembic migrations.
 

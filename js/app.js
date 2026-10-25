@@ -368,7 +368,7 @@ function initCodeInspector() {
       cmd: "inspect --repo event-booking-ticketing-api",
       github: "https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API",
       projectId: "event-booking-ticketing-api",
-      summary: "Flagship FastAPI + PostgreSQL + Redis backend engineered to eliminate race conditions during high-demand seat reservations.",
+      summary: "High-concurrency FastAPI + PostgreSQL 16 + Redis 7 backend benchmarked with 100 concurrent buyers on 20 seats (0 oversold), 3× linear cluster scaling (~1,500 req/s), and idempotent Stripe settlement.",
       files: [
         {
           name: "app/api/v1/bookings.py",
@@ -404,12 +404,29 @@ function initCodeInspector() {
             [38, "        raise HTTPException(401, 'Invalid credentials')"],
             [39, "    return issue_rotated_token_pair(user_id=user.id, role=user.role)"]
           ]
+        },
+        {
+          name: "app/services/webhook_service.py",
+          tag: "idempotent settlement",
+          lines: [
+            [42, "@router.post('/webhook/stripe')"],
+            [43, "async def stripe_webhook(request: Request, db: AsyncSession = Depends(get_db)):"],
+            [44, "    payload = await request.body()"],
+            [45, "    sig_header = request.headers.get('stripe-signature')"],
+            [46, "    event = stripe.Webhook.construct_event(payload, sig_header, STRIPE_WEBHOOK_SECRET)"],
+            [47, "    if event['type'] == 'payment_intent.succeeded':"],
+            [48, "        pi = event['data']['object']"],
+            [49, "        await confirm_booking_idempotent(db, payment_intent_id=pi['id'])"],
+            [50, "    elif event['type'] == 'payment_intent.payment_failed':"],
+            [51, "        await record_failed_payment(db, pi['id'])  # Preserves 10m hold for retries"],
+            [52, "    return {'status': 'processed'}"]
+          ]
         }
       ],
       findings: [
         {
           sev: "CONCURRENCY",
-          title: "Zero double-booking under concurrent checkout spikes",
+          title: "Zero double-booking under concurrent checkout spikes (100 VUs on 20 seats)",
           hl: { "app/api/v1/bookings.py": [14, 15, 16, 17, 18, 19, 24, 25] },
           what: "Combines a short-lived Redis distributed lock (`redis_client.lock`) with PostgreSQL `SELECT ... FOR UPDATE` row locking.",
           problem: "Without row-level locking, two users clicking 'Book' at the exact same millisecond read `is_reserved=False` and double-sell the seat.",
@@ -422,6 +439,14 @@ function initCodeInspector() {
           what: "Tracks failed login thresholds with automatic cooldown locks and rotates JWT refresh tokens on every use.",
           problem: "Static JWTs without lockout thresholds allow credential stuffing and token replay after logout.",
           fix: "Enforce `MAX_LOGIN_ATTEMPTS` with `423 Locked` response and invalidate old refresh tokens on logout."
+        },
+        {
+          sev: "RESILIENCY",
+          title: "Stripe webhook idempotency & automated refund recovery",
+          hl: { "app/services/webhook_service.py": [45, 46, 47, 49, 51] },
+          what: "Verifies HMAC-SHA256 signatures and processes transitions with deterministic idempotency keys (`booking_{id}_{attempt}`).",
+          problem: "Stripe webhooks retry on network blips. Without idempotency, duplicate events risk double-crediting bookings or orphaned charges.",
+          fix: "Construct event with secret -> enforce idempotent transitions -> preserve 10-minute hold window on failed charge for customer retry."
         }
       ]
     },

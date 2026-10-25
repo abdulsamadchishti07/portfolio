@@ -8,45 +8,57 @@ export const projectsData = [
     id: "event-booking-ticketing-api",
     title: "Event Booking & Ticketing API",
     category: "fastapi",
-    categoryLabel: "In Development 🚀",
-    tagline: "Users can browse events, reserve seats/tickets, and pay. Admins can create events with limited seat capacity.",
-    impactBanner: "In Active Development • Concurrency & Race Condition Prevention",
+    categoryLabel: "Production Ready ⚡",
+    tagline: "A high-concurrency ticketing engine where 100 simultaneous buyers racing for 20 seats yields exactly 20 sales and 0 oversold tickets (~1,500 req/s across 3 nodes).",
+    impactBanner: "0 Oversold Tickets (100 VUs / 20 Seats) • 3.0× Linear Scaling (~1,500 req/s) • 212 Tests Passing",
     impactBannerColor: "terracotta",
     githubUrl: "https://github.com/abdulsamadchishti07/Event-Booking-Ticketing-API",
-    description: "My primary flagship project currently in active development. Built with FastAPI and PostgreSQL, engineered to handle event ticket reservations safely. Implements role enums (Admin, Seller, Buyer), account lockout protection, refresh token rotation with secure logout, and transactional seat capacity deduction to prevent double-booking anomalies.",
-    techStack: ["FastAPI", "Python", "PostgreSQL", "Alembic", "Redis"],
-    techIcons: ["fastapi.svg", "python.svg", "postgresql.svg", "database.svg", "redis.svg"],
+    description: "High-concurrency event booking and ticketing backend engineered to eliminate race conditions and double-selling under flash-drop spikes. Built with FastAPI, PostgreSQL 16, Redis 7, Docker, and Nginx. Benchmarked locally with k6: 100 simultaneous buyers racing for 20 seats produced exactly 20 wins, 80 sold out, and 0 overbooking errors (SUM(quantity) == 20 verified). Features 3.0× linear cluster scaling, Little's Law capacity modeling (10,000–15,000 concurrent browsing users), and Stripe webhook resiliency with HMAC verification and deterministic refund idempotency.",
+    techStack: ["FastAPI", "PostgreSQL 16", "Redis 7", "Docker", "Nginx", "Stripe", "k6", "SQLAlchemy 2.0", "Alembic"],
+    techIcons: ["fastapi.svg", "postgresql.svg", "redis.svg", "docker.svg", "database.svg", "server.svg"],
     metrics: [
-      { label: "Status", value: "In Development" },
-      { label: "Framework", value: "FastAPI" },
-      { label: "Package Tool", value: "UV / Pyproject" },
-      { label: "Migrations", value: "Alembic" }
+      { label: "0 Oversold", value: "100 VUs / 20 Seats" },
+      { label: "3.0× Scaling", value: "~1,500 req/s" },
+      { label: "212 Passing", value: "Pytest Suite" },
+      { label: "Idempotent", value: "Stripe Webhooks" }
     ],
-    architecture: `Client Booking Request
-      │
-      ▼
-[ FastAPI Async Engine ]
-      │
-      ├──▶ [ Auth Layer: Role Enum, Lockout Check & JWT ]
-      │
-      ├──▶ [ Redis Distributed Lock: Temporary Seat Hold ]
-      │          │
-      │          ▼
-      └──▶ [ PostgreSQL Transaction: SELECT FOR UPDATE ]
-             - Validate seat quota
-             - Deduct ticket inventory
-             - Generate reservation record
-      │
-      ▼
-[ Order Confirmed & Ticket Issued ]`,
+    architecture: `[ k6 Load Runner / 100 VUs ] ──▶ [ Nginx Reverse Proxy (Round-Robin) ]
+                                            │
+                    ┌───────────────────────┼───────────────────────┐
+                    ▼                       ▼                       ▼
+            [ web1 (FastAPI) ]      [ web2 (FastAPI) ]      [ web3 (FastAPI) ]
+                    │                       │                       │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                  ┌─────────────────────────┴─────────────────────────┐
+                  ▼                                                   ▼
+     [ Redis 7 Distributed Store ]                          [ PostgreSQL 16 (ACID) ]
+      - Distributed holds (10m TTL)                          - SELECT ... FOR UPDATE
+      - Read-through cached events                           - Deterministic lock order (id ASC)
+      - Brute-force lockout counters                         - Verified: SUM(quantity) == 20
+                  │                                                   │
+                  └─────────────────────────┬─────────────────────────┘
+                                            ▼
+                           [ Stripe Payment & Webhooks ]
+                            - HMAC-SHA256 signature verification
+                            - Idempotent settlement (450-600/s)
+                            - Auto-refund on failure with unique keys`,
     challenges: [
       {
-        title: "Account Lockout & Auth Security",
-        desc: "Implemented role enums, failed-attempt account lockout thresholds, and secure refresh token expiration with explicit logout invalidation."
+        title: "Eliminating Double-Booking Under Concurrency",
+        desc: "Combined Redis 7 distributed temporary seat holds (10-minute TTL) with PostgreSQL 16 row-level pessimistic locking (SELECT FOR UPDATE ordered deterministically by ID to avoid deadlocks). Stress-tested with k6 at 100 concurrent virtual buyers racing for 20 seats: exactly 20 reservations won, 80 returned HTTP 409, and database audit verified zero oversold seats."
       },
       {
-        title: "Preventing Ticket Overselling",
-        desc: "Designing seat reservation state machines with Redis holds so concurrent checkout requests cannot exceed event capacity."
+        title: "3.0× Linear Scale & Little's Law Capacity",
+        desc: "Scaled from a single node (~500 req/s ceiling) to a 3-container cluster behind Nginx (~1,500–1,650 req/s ceiling, 4.6 ms median latency). Modeled via Little's Law (N = λ × W) to sustain 10,000–15,000 concurrent browsing users at realistic human think time (W = 10s)."
+      },
+      {
+        title: "Stripe Webhook Resiliency & Zero Double-Billing",
+        desc: "Engineered automated webhook settlement capable of 450–600 events/sec with cryptographic HMAC-SHA256 signature verification. Enforced deterministic idempotency keys (booking_{id}_{attempt}, auto_refund_{pi_id}) so failed charges or duplicate webhook deliveries never cause double-charges or seat leakage."
+      },
+      {
+        title: "Anti-Lockout & Brute-Force Shielding",
+        desc: "Tracked login failures per {email}:{client_ip} pair using Redis 7 expire(..., nx=True) to prevent denial-of-service on legitimate users, backed by an Argon2id verification limiter (capped at 10 concurrent) to protect CPU resources."
       }
     ]
   },
