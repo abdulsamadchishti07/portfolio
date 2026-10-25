@@ -106,43 +106,54 @@ export const projectsData = [
   },
   {
     id: "project-management-api",
-    title: "Project-Management-API",
+    title: "TaskFlow API",
     category: "fastapi",
-    categoryLabel: "FastAPI Multi-Tenant",
-    tagline: "Multi-tenant task management REST API built with FastAPI, Redis caching, and Alembic.",
-    impactBanner: "Multi-Tenant Isolation, Redis Caching & Rate Limiting",
+    categoryLabel: "FastAPI · Multi-Tenant",
+    tagline: "A multi-tenant project management backend, like a small Jira or Trello API, with workspace RBAC, audit logging, and instant token revocation.",
+    impactBanner: "Workspace RBAC (Owner/Admin/Member/Viewer) • Change Audit Log • Instant Token Revocation",
     impactBannerColor: "amber",
     githubUrl: "https://github.com/abdulsamadchishti07/Project-Management-API",
-    description: "A multi-tenant task and project management REST API built with FastAPI. Features Redis caching, request rate-limiting, Alembic database schema migrations, and comprehensive automated test suites using Pytest and Postman.",
-    techStack: ["FastAPI", "Python", "PostgreSQL", "Redis", "Docker"],
-    techIcons: ["fastapi.svg", "python.svg", "postgresql.svg", "redis.svg", "docker.svg"],
+    description: "A multi-tenant project management backend, like a small Jira or Trello API. Teams get workspaces with owner, admin, member, and viewer roles, private and public projects, tasks with filters, comments, and an audit log of every change. Logging out kills all of a user’s tokens instantly via Redis blocklisting.",
+    techStack: ["FastAPI", "PostgreSQL", "Redis", "Alembic", "Docker", "GitHub Actions", "Postman"],
+    techIcons: ["fastapi.svg", "postgresql.svg", "redis.svg", "database.svg", "docker.svg", "git.svg", "postman.svg"],
     metrics: [
-      { label: "Framework", value: "FastAPI" },
-      { label: "Architecture", value: "Multi-Tenant" },
-      { label: "Caching", value: "Redis Cache" },
-      { label: "Testing", value: "Pytest + Postman" }
+      { label: "Roles", value: "4-Tier RBAC" },
+      { label: "Audit Log", value: "Every Change" },
+      { label: "Logout", value: "Instant Token Kill" },
+      { label: "CI Testing", value: "Postman + Pytest" }
     ],
-    architecture: `Tenant / Member Request
+    architecture: `Client Request (Workspace Member)
       │
       ▼
-[ FastAPI API Router ]
+[ FastAPI Async Gateway ]
       │
-      ├──▶ [ Rate Limiting & Redis Caching Layer ]
+      ├──▶ [ Token Validation & Redis Blacklist Guard ] (Instant kill on logout)
       │
-      ├──▶ [ Multi-Tenant Scoped Security Guard ]
+      ├──▶ [ Workspace-Scoped RBAC: Owner / Admin / Member / Viewer ]
+      │
+      ├──▶ [ Rate Limiting & Redis Read Cache ]
       │
       ▼
-[ PostgreSQL Relational Schema ]
-   - Organizations & Teams
-   - Projects, Boards & Tasks (Tracked via Alembic)`,
+[ PostgreSQL Database (Dockerized) ]
+   - Workspaces & Scoped Memberships
+   - Private / Public Projects & Tasks with Filters
+   - Comments & Audit Event Log of Every Change`,
     challenges: [
       {
-        title: "Redis Caching & Rate-Limiting",
-        desc: "Integrated Redis to cache frequent read operations and enforce per-tenant request rate limits to prevent API abuse."
+        title: "Workspace-Scoped RBAC & Resource Isolation",
+        desc: "Enforced strict multi-tenant boundaries where project and task access is governed by contextual workspace memberships (owner, admin, member, viewer)."
       },
       {
-        title: "Automated Testing & Alembic Migrations",
-        desc: "Constructed end-to-end Pytest suites and Postman collections with Docker Compose integration for CI/CD test automation."
+        title: "Instant Token Revocation on Logout",
+        desc: "Implemented a Redis-backed token blacklist with TTL matching JWT expiration, ensuring logging out immediately kills all active access and refresh tokens."
+      },
+      {
+        title: "Complete Audit Logging & Change Tracking",
+        desc: "Engineered an audit trail logging every mutation across projects, tasks, and comments with actor attribution and timestamps."
+      },
+      {
+        title: "CI/CD & Comprehensive Postman Test Suite",
+        desc: "Built complete Postman collection suites and automated Pytest workflows integrated with GitHub Actions and Docker Compose."
       }
     ]
   }
